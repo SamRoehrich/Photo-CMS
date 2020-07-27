@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useState } from "react";
+import Link from "next/link";
 
 const useStyles = makeStyles(() => ({
   textStyles: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles(() => ({
     // marginLeft: "60px",
     margin: "0 auto",
     fontWeight: 500,
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
 }));
 
@@ -32,9 +36,11 @@ const Header = () => {
         <Button onClick={handleInstaIconClick}>
           <InstagramIcon color="action" />
         </Button>
-        <Typography className={classes.textStyles} variant="h5">
-          Kyle Garrett Photography
-        </Typography>
+        <Link href="/">
+          <Typography className={classes.textStyles} variant="h5">
+            Kyle Garrett Photography
+          </Typography>
+        </Link>
         <DropDownMenu />
       </Toolbar>
     </AppBar>
@@ -64,11 +70,21 @@ const DropDownMenu = () => {
         open={Boolean(open)}
         onClose={handleClose}
       >
-        <MenuItem>Climbing</MenuItem>
-        <MenuItem>Portraits</MenuItem>
-        <MenuItem>Not Climbing</MenuItem>
-        <MenuItem>About</MenuItem>
-        <MenuItem>Contact</MenuItem>
+        <Link href="/climbing">
+          <MenuItem onClick={handleClose}>Climbing</MenuItem>
+        </Link>
+        <Link href="/portraits">
+          <MenuItem onClick={handleClose}>Portraits</MenuItem>
+        </Link>
+        <Link href="/notclimbing">
+          <MenuItem onClick={handleClose}>Not Climbing</MenuItem>
+        </Link>
+        <Link href="/about">
+          <MenuItem onClick={handleClose}>About</MenuItem>
+        </Link>
+        <Link href="/contact">
+          <MenuItem onClick={handleClose}>Contact</MenuItem>
+        </Link>
       </Menu>
     </div>
   );

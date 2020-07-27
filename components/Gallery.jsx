@@ -1,21 +1,20 @@
-import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SimpleCard from "./PhotoCard";
 
-const Gallery = () => {
+const Gallery = ({ route }) => {
+  const [pics, setPics] = useState([]);
+
   useEffect(() => {
-    fetch("http://kgphotos-appliedefforts-main.s3.amazonaws.com/", {
-      mode: "cors",
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
-      .then((response) => console.log(response))
+    fetch(`https://kyle-garrett-photo-server.herokuapp.com/photos${route}`)
+      .then((response) => response.json())
+      .then((res) => setPics(res))
       .catch((e) => console.log(e));
-  }, []);
+  }, [route]);
   return (
     <div>
-      <p>Gallery</p>
+      {pics.map((pic) => (
+        <SimpleCard picture={pic} />
+      ))}
     </div>
   );
 };

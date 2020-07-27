@@ -12,7 +12,6 @@ const ContactForm = styled.form`
 const ContactPage = () => {
   return (
     <div>
-      <SideBar />
       <ContactForm>
         <input placeholder="email" />
         <input placeholder="name" />

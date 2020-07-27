@@ -1,12 +1,13 @@
 import "fontsource-roboto";
-
-import Header from "../components/Header";
 import Theme from "../components/Theme";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Theme>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Theme>
   );
 }

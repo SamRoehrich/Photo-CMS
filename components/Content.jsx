@@ -1,13 +1,14 @@
 import { Grid } from "@material-ui/core";
-import PhotoCard from "../components/PhotoCard";
+import { useRouter } from "next/router";
 
-import CloudPics from "./Cloudinary";
+import Gallery from "./Gallery";
 
 const Content = () => {
+  const router = useRouter();
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} sm={12} xl={8}>
-        <PhotoCard />
+        <Gallery route={router.route} />
       </Grid>
     </Grid>
   );

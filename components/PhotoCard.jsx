@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -20,11 +20,13 @@ const useStyles = makeStyles({
 
 export default function SimpleCard({ picture }) {
   const classes = useStyles();
-
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.media} image="/images/test.jpg" />
+        <CardMedia
+          className={classes.media}
+          image={picture.link !== undefined ? picture.link : ""}
+        />
       </CardActionArea>
     </Card>
   );
