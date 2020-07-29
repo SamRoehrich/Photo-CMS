@@ -3,7 +3,7 @@ import Gallery from "../components/Gallery";
 const NotClimbingPage = ({ pics }) => {
   return <Gallery pics={pics} />;
 };
-export default ClimbingPage;
+export default NotClimbingPage;
 
 export async function getStaticProps() {
   const res = await fetch(
