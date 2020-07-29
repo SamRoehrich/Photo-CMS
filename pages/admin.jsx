@@ -1,6 +1,6 @@
-import AdminConsole from "../components/AdminConsole";
+import ManagePhotos from "../components/ManagePhotos";
 
 const AdminPage = () => {
-  return <AdminConsole />;
+  return <ManagePhotos />;
 };
 export default AdminPage;

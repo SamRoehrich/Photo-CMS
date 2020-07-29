@@ -11,6 +11,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles(() => ({
   textStyles: {
@@ -49,6 +50,7 @@ const Header = () => {
 
 const DropDownMenu = () => {
   const [open, setOpen] = useState(null);
+  const router = useRouter();
 
   function handleBurgerIconClick(event) {
     setOpen(event.currentTarget);
@@ -58,34 +60,56 @@ const DropDownMenu = () => {
     setOpen(null);
   }
 
+  console.log(router);
+
   return (
     <div>
       <Button onClick={handleBurgerIconClick}>
         <MenuIcon color="action" />
       </Button>
-      <Menu
-        id="dropdown-menu"
-        anchorEl={open}
-        keepMounted
-        open={Boolean(open)}
-        onClose={handleClose}
-      >
-        <Link href="/climbing">
-          <MenuItem onClick={handleClose}>Climbing</MenuItem>
-        </Link>
-        <Link href="/portraits">
-          <MenuItem onClick={handleClose}>Portraits</MenuItem>
-        </Link>
-        <Link href="/notclimbing">
-          <MenuItem onClick={handleClose}>Not Climbing</MenuItem>
-        </Link>
-        <Link href="/about">
-          <MenuItem onClick={handleClose}>About</MenuItem>
-        </Link>
-        <Link href="/contact">
-          <MenuItem onClick={handleClose}>Contact</MenuItem>
-        </Link>
-      </Menu>
+      {router.route !== "/admin" ? (
+        <Menu
+          id="dropdown-menu"
+          anchorEl={open}
+          keepMounted
+          open={Boolean(open)}
+          onClose={handleClose}
+        >
+          <Link href="/climbing">
+            <MenuItem onClick={handleClose}>Climbing</MenuItem>
+          </Link>
+          <Link href="/portraits">
+            <MenuItem onClick={handleClose}>Portraits</MenuItem>
+          </Link>
+          <Link href="/notclimbing">
+            <MenuItem onClick={handleClose}>Not Climbing</MenuItem>
+          </Link>
+          <Link href="/about">
+            <MenuItem onClick={handleClose}>About</MenuItem>
+          </Link>
+          <Link href="/contact">
+            <MenuItem onClick={handleClose}>Contact</MenuItem>
+          </Link>
+        </Menu>
+      ) : (
+        <Menu
+          id="dropdown-menu"
+          anchorEl={open}
+          keepMounted
+          open={Boolean(open)}
+          onClose={handleClose}
+        >
+          <Link href="/climbing">
+            <MenuItem onClick={handleClose}>Manage Pictures</MenuItem>
+          </Link>
+          <Link href="/portraits">
+            <MenuItem onClick={handleClose}>Upload An Image</MenuItem>
+          </Link>
+          <Link href="/notclimbing">
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Link>
+        </Menu>
+      )}
     </div>
   );
 };
