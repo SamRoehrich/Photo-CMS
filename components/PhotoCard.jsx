@@ -20,6 +20,8 @@ const useStyles = makeStyles({
 
 export default function SimpleCard({ picture }) {
   const classes = useStyles();
+
+  console.log(picture);
   return (
     <Card className={classes.root}>
       <CardActionArea>

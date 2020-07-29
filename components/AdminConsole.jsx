@@ -14,7 +14,7 @@ const AdminConsole = () => {
       }
     ).then((res) => res.json());
 
-    console.log(res.url);
+    console.log(res);
 
     // const file = res;
     // return file.url
