@@ -1,4 +1,5 @@
 import "fontsource-roboto";
+import "react-image-gallery/styles/css/image-gallery.css";
 import Theme from "../components/Theme";
 import Layout from "../components/Layout";
 
