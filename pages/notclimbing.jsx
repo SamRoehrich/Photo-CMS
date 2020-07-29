@@ -1,6 +1,19 @@
-import Content from "../components/Content";
+import Gallery from "../components/Gallery";
 
-const NotClimbingPage = () => {
-  return <Content />;
+const NotClimbingPage = ({ pics }) => {
+  return <Gallery pics={pics} />;
 };
-export default NotClimbingPage;
+export default ClimbingPage;
+
+export async function getStaticProps() {
+  const res = await fetch(
+    `https://kyle-garrett-photo-server.herokuapp.com/photos/notclimbing`
+  );
+  const pics = await res.json();
+
+  return {
+    props: {
+      pics,
+    },
+  };
+}
