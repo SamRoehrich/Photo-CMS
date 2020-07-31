@@ -15,13 +15,16 @@ import { useRouter } from "next/router";
 
 const useStyles = makeStyles(() => ({
   textStyles: {
-    color: "rgba(0, 0, 0, 0.87)",
+    color: "#F4FFEB",
     // marginLeft: "60px",
     margin: "0 auto",
     fontWeight: 500,
     "&:hover": {
       cursor: "pointer",
     },
+  },
+  iconStyles: {
+    color: "#F4FFEB",
   },
 }));
 
@@ -35,7 +38,7 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar>
         <Button onClick={handleInstaIconClick}>
-          <InstagramIcon color="action" />
+          <InstagramIcon className={classes.iconStyles} />
         </Button>
         <Link href="/">
           <Typography className={classes.textStyles} variant="h5">
@@ -51,6 +54,7 @@ const Header = () => {
 const DropDownMenu = () => {
   const [open, setOpen] = useState(null);
   const router = useRouter();
+  const classes = useStyles();
 
   function handleBurgerIconClick(event) {
     setOpen(event.currentTarget);
@@ -65,7 +69,7 @@ const DropDownMenu = () => {
   return (
     <div>
       <Button onClick={handleBurgerIconClick}>
-        <MenuIcon color="action" />
+        <MenuIcon className={classes.iconStyles} />
       </Button>
       {router.route !== "/admin" ? (
         <Menu

@@ -1,16 +1,3 @@
-// import SimpleCard from "./PhotoCard";
-
-// const Gallery = ({ pics }) => {
-//   return (
-//     <div>
-//       {pics.map((pic) => (
-//         <SimpleCard picture={pic} />
-//       ))}
-//     </div>
-//   );
-// };
-// export default Gallery;
-
 import ImageGallery from "react-image-gallery";
 
 const Gallery = ({ pics }) => {
@@ -18,8 +5,16 @@ const Gallery = ({ pics }) => {
     return {
       original: pic.link,
       thumbnail: pic.thumbnail,
+      originalClass: "width: 100%",
     };
   });
-  return <ImageGallery items={images} />;
+  return (
+    <ImageGallery
+      items={images}
+      showPlayButton={false}
+      showFullscreenButton={false}
+      // showThumbnails={false}
+    />
+  );
 };
 export default Gallery;

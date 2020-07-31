@@ -1,6 +1,7 @@
 import ManagePhotos from "../components/ManagePhotos";
+import AdminPhotoUpload from "../components/PhotoUpload";
 
 const AdminPage = () => {
-  return <ManagePhotos />;
+  return <AdminPhotoUpload />;
 };
 export default AdminPage;

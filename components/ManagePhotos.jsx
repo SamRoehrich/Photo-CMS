@@ -7,15 +7,15 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { Switch } from "@material-ui/core";
+import PhotoListItem from "./PhotoListItem";
 
 const columns = [
-  { id: "title", label: "Title", minWidth: 150 },
-  { id: "tag", label: "Tag", minWidth: 200 },
+  { id: "expand", label: "", minWidth: 50 },
+  { id: "title", label: "Title", minWidth: 150, align: "left" },
+  { id: "tag", label: "Tag", minWidth: 125 },
   { id: "link", label: "Link", minWidth: 100 },
   { id: "isActive", label: "Is Active", minWidth: 150 },
-  { id: "delete", label: "Delete", minWidth: 100, align: "right" },
+  { id: "delete", label: "Delete", minWidth: 100, align: "center" },
 ];
 
 const useStyles = makeStyles({
@@ -26,18 +26,37 @@ const useStyles = makeStyles({
   container: {
     minHeight: 440,
   },
+  iconStyles: {
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
 });
 
 const ManagePhotos = () => {
   const [photos, setPhotos] = useState([]);
+  const [id, setId] = useState(0);
   const classes = useStyles();
+  const fetchPictures = async () => {
+    const result = await fetch(
+      "https://kyle-garrett-photo-server.herokuapp.com/photos/all"
+    );
+    const photos = await result.json();
+    photos.sort((a, b) => {
+      let val1 = a.tag.toUpperCase();
+      let val2 = b.tag.toUpperCase();
+      return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
+    });
+    // photos.sort((a, b) => {
+    //   let val1 = a.tagIndex;
+    //   let val2 = b.tagIndex;
+    //   return val1 - val2;
+    // });
+    setPhotos(photos);
+  };
   useEffect(() => {
-    fetch("https://kyle-garrett-photo-server.herokuapp.com/photos/all")
-      .then((res) => res.json())
-      .then((pics) => {
-        setPhotos(pics);
-      });
-  });
+    fetchPictures();
+  }, [id]);
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -48,7 +67,7 @@ const ManagePhotos = () => {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minwidth }}
+                  style={{ minWidth: column.minwidth, color: "#ffffff" }}
                 >
                   {column.label}
                 </TableCell>
@@ -57,19 +76,7 @@ const ManagePhotos = () => {
           </TableHead>
           <TableBody>
             {photos.map((photo) => (
-              <TableRow key={photo.id}>
-                <TableCell>{photo.title}</TableCell>
-                <TableCell>{photo.tag}</TableCell>
-                <TableCell>
-                  <a href={photo.link}>Photo</a>
-                </TableCell>
-                <TableCell>
-                  <Switch checked={photo.isActive} />
-                </TableCell>
-                <TableCell align="right">
-                  <DeleteIcon />
-                </TableCell>
-              </TableRow>
+              <PhotoListItem photo={photo} />
             ))}
           </TableBody>
         </Table>
