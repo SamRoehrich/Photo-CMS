@@ -4,7 +4,7 @@ import CssBaseLine from "@material-ui/core/CssBaseline";
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#04000A",
+      main: "#EFE9DC",
       secondary: "#263238",
       contrastText: "rgba(117, 117, 117, 0.91)",
     },
@@ -22,10 +22,10 @@ export const theme = createMuiTheme({
     pickerHeaderColor: "rgba(255, 255, 255, 0.18)",
     clockCircleColor: "rgba(255, 255, 255, 0.24)",
     shadowColor: "rgba(0, 0, 0, 0.75)",
-    background: { default: "#04000A" },
+    background: { default: "#EFE9DC" },
   },
   appBar: {
-    color: "#04000A",
+    color: "#EFE9DC",
     textColor: "rgba(0, 0, 0, 0.87)",
     height: 67,
     titleFontWeight: 400,

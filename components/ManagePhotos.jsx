@@ -37,23 +37,40 @@ const ManagePhotos = () => {
   const [photos, setPhotos] = useState([]);
   const [id, setId] = useState(0);
   const classes = useStyles();
+
   const fetchPictures = async () => {
     const result = await fetch(
       "https://kyle-garrett-photo-server.herokuapp.com/photos/all"
-    );
-    const photos = await result.json();
-    photos.sort((a, b) => {
-      let val1 = a.tag.toUpperCase();
-      let val2 = b.tag.toUpperCase();
-      return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
-    });
+    )
+      .then((pics) => pics.json())
+      .then((photos) =>
+        photos.map((photo) => {
+          if (photo.isActive) return photo;
+        })
+      )
+      .then((sorted) => sorted.sort((a, b) => a.tagIndex - b.tagIndex))
+      .then((activePhotos) =>
+        activePhotos.sort((a, b) => {
+          let val1 = a.tag.toUpperCase();
+          let val2 = b.tag.toUpperCase();
+          return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
+        })
+      );
+
+    // const photos = await result.map((pic) => pic.isActive);
+    // await result.sort((a, b) => {
+    //   let val1 = a.tag.toUpperCase();
+    //   let val2 = b.tag.toUpperCase();
+    //   return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
+    // });
     // photos.sort((a, b) => {
     //   let val1 = a.tagIndex;
     //   let val2 = b.tagIndex;
     //   return val1 - val2;
     // });
-    setPhotos(photos);
+    setPhotos(result);
   };
+
   useEffect(() => {
     fetchPictures();
   }, [id]);

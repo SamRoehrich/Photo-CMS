@@ -1,20 +1,40 @@
-import styled from "styled-components";
 import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const SideBarButton = styled(Button)`
-  height: 100px;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-`;
+const useStyles = makeStyles({
+  root: {
+    color: "black",
+    borderRadius: 0,
+    marginBottom: 15,
+    "&:hover": {
+      color: "black",
+      borderBottom: "solid red",
+      transition: ".25s",
+    },
+  },
+  active: {
+    borderBottom: "2.5px solid red",
+    color: "black",
+    transition: ".75s",
+    borderRadius: 0,
+  },
+});
 
-const SideBarLink = ({ text }) => {
+const SideBarLink = ({ text, href }) => {
+  const classes = useStyles();
+  const router = useRouter();
   return (
-    <SideBarButton>
-      <p>{text}</p>
-    </SideBarButton>
+    <Link href={`/${href}`}>
+      <Button
+        className={
+          router.pathname === `/${href}` ? classes.active : classes.root
+        }
+      >
+        {text}
+      </Button>
+    </Link>
   );
 };
 export default SideBarLink;

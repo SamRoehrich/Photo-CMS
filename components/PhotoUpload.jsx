@@ -62,7 +62,7 @@ const AdminPhotoUpload = () => {
     )
       .then((res) => res.json())
       .catch((e) => console.log(e));
-    const UPLOAD_PREFIX = `https://res.cloudinary.com/dchopcxko/image/upload/bo_${borderWidth}px_solid_rgb:ffffff,c_scale,h_900/`;
+    const UPLOAD_PREFIX = `https://res.cloudinary.com/dchopcxko/image/upload/bo_${borderWidth}px_solid_rgb:ffffff,c_scale,h_650/`;
     const location = res.url.slice(49);
     const link = UPLOAD_PREFIX + location;
     setThumbnailLink(res.url);

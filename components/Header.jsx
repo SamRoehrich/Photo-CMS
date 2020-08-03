@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 
 const useStyles = makeStyles(() => ({
   textStyles: {
-    color: "#F4FFEB",
+    color: "#E6714A",
     // marginLeft: "60px",
     margin: "0 auto",
     fontWeight: 500,
@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   iconStyles: {
-    color: "#F4FFEB",
+    color: "#E6714A",
   },
 }));
 
@@ -45,7 +45,7 @@ const Header = () => {
             Kyle Garrett Photography
           </Typography>
         </Link>
-        <DropDownMenu />
+        {/* <DropDownMenu /> */}
       </Toolbar>
     </AppBar>
   );

@@ -1,19 +1,33 @@
 import ImageGallery from "react-image-gallery";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    marginTop: "40px",
+  },
+});
 
 const Gallery = ({ pics }) => {
-  const images = pics.map((pic) => {
+  const activeImages = pics.map((pic) => {
+    if (pic.isActive) return pic;
+  });
+  activeImages.sort((a, b) => b.tagIndex - a.tagIndex);
+
+  const images = activeImages.map((pic) => {
     return {
       original: pic.link,
       thumbnail: pic.thumbnail,
-      originalClass: "width: 100%",
     };
   });
+
+  const classes = useStyles();
   return (
     <ImageGallery
       items={images}
       showPlayButton={false}
       showFullscreenButton={false}
-      // showThumbnails={false}
+      showThumbnails={false}
+      originalClass={classes.root}
     />
   );
 };
