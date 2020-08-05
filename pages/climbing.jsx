@@ -1,4 +1,4 @@
-import Gallery from "../components/Gallery";
+import Gallery from "../components/Gallery/Gallery";
 
 const ClimbingPage = ({ pics }) => {
   return <Gallery pics={pics} />;

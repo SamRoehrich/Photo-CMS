@@ -31,8 +31,9 @@ const Layout = ({ children }) => {
           {children}
         </Grid>
         <Grid item xs={false} sm={2}>
-          {" "}
-          <Thumbnails />{" "}
+          <Hidden only="sm">
+            <Thumbnails />
+          </Hidden>
         </Grid>
       </Grid>
     </Grid>
