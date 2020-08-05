@@ -5,6 +5,7 @@ import {
   Button,
   Menu,
   MenuItem,
+  Hidden,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -45,7 +46,9 @@ const Header = () => {
             Kyle Garrett Photography
           </Typography>
         </Link>
-        {/* <DropDownMenu /> */}
+        <Hidden mdUp>
+          <DropDownMenu />
+        </Hidden>
       </Toolbar>
     </AppBar>
   );

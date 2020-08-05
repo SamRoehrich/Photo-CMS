@@ -18,6 +18,7 @@
     "fontsource-roboto": "^2.2.3",
     "next": "^9.4.4",
     "react": "^16.13.1",
+    "react-alice-carousel": "^1.19.3",
     "react-dom": "^16.13.1",
     "react-image-gallery": "^1.0.8",
     "styled-components": "^5.1.1"

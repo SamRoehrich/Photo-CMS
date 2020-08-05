@@ -43,11 +43,6 @@ const ManagePhotos = () => {
       "https://kyle-garrett-photo-server.herokuapp.com/photos/all"
     )
       .then((pics) => pics.json())
-      .then((photos) =>
-        photos.map((photo) => {
-          if (photo.isActive) return photo;
-        })
-      )
       .then((sorted) => sorted.sort((a, b) => a.tagIndex - b.tagIndex))
       .then((activePhotos) =>
         activePhotos.sort((a, b) => {

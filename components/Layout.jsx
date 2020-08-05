@@ -1,8 +1,9 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Hidden } from "@material-ui/core";
 import Header from "./Header";
 import SideBar from "./SideBar";
 
 import { makeStyles } from "@material-ui/styles";
+import Thumbnails from "./Thumbnails";
 
 const useStyles = makeStyles({
   sideBar: {
@@ -22,12 +23,17 @@ const Layout = ({ children }) => {
       </Grid>
       <Grid item container>
         <Grid item xs={false} sm={2} className={classes.sideBar}>
-          <SideBar />
+          <Hidden only="sm">
+            <SideBar />
+          </Hidden>
         </Grid>
         <Grid item xs={12} sm={8}>
           {children}
         </Grid>
-        <Grid item xs={false} sm={2} />
+        <Grid item xs={false} sm={2}>
+          {" "}
+          <Thumbnails />{" "}
+        </Grid>
       </Grid>
     </Grid>
   );

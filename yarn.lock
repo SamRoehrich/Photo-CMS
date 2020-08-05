@@ -4778,7 +4778,7 @@ prop-types-exact@1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@15.7.2, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4881,6 +4881,14 @@ randomfill@^1.0.3:
   dependencies:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
+
+react-alice-carousel@^1.19.3:
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/react-alice-carousel/-/react-alice-carousel-1.19.3.tgz#dc33b431aca727d999407f1e529f522b15dc3bc2"
+  integrity sha512-FaOQ/f7C/4cBuXr2tA4YgVyVrvWI7VbccGxJpu+rCsnnUlcN0YLz+20iJ2TFCXJp9M+/FjBratUNC7vQBrMQPw==
+  dependencies:
+    prop-types "^15.5.10"
+    vanilla-swipe "1.2.0"
 
 react-dom@^16.13.1:
   version "16.13.1"
@@ -5899,6 +5907,11 @@ util@^0.11.0:
   integrity sha512-HShAsny+zS2TZfaXxD9tYj4HQGlBezXZMZuM/S5PKLLoZkShZiGk9o5CzukI1LVHZvjdvZ2Sj1aW/Ndn2NB/HQ==
   dependencies:
     inherits "2.0.3"
+
+vanilla-swipe@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vanilla-swipe/-/vanilla-swipe-1.2.0.tgz#dd36671ed8e388c6ce73e3d75dcee596f001f7a0"
+  integrity sha512-1yNnsfHcl67Y24HGJc/zrC9omRBzzxqvC6D5apOXMqGukuz0Zha1ydKJM7AUL/dB2w7Bd7UsI2Uw7+AE4soDaA==
 
 vendors@^1.0.0:
   version "1.0.4"
