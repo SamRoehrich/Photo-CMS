@@ -1,5 +1,4 @@
-import Gallery from "../components/Gallery";
-import { useGalleryState } from "../components/GalleryContext";
+import Gallery from "../components/Gallery/Gallery";
 
 const HomePage = ({ pics }) => {
   return <Gallery pics={pics} />;

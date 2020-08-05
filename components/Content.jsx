@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import { useRouter } from "next/router";
 
-import Gallery from "./Gallery";
+import Gallery from "./Gallery/Gallery";
 
 const Content = () => {
   const router = useRouter();

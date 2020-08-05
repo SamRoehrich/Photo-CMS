@@ -3,7 +3,7 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 
 import { makeStyles } from "@material-ui/styles";
-import Thumbnails from "./Thumbnails";
+import Thumbnails from "./Gallery/Thumbnails";
 
 const useStyles = makeStyles({
   sideBar: {
