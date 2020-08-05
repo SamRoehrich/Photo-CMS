@@ -38,7 +38,10 @@ function reducer(state, action) {
       return { ...state, photos, thumbnails };
     }
     case "move-forward": {
-      let currentPhotoIndex = state.currentPhotoIndex + 1;
+      let currentPhotoIndex =
+        state.currentPhotoIndex !== state.photos.length - 1
+          ? state.currentPhotoIndex + 1
+          : 0;
       return { ...state, currentPhotoIndex };
     }
     case "move-backward": {
