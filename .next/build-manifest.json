@@ -20,11 +20,11 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/climbing": [
+    "/notclimbing": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/notclimbing": [
+    "/portraits": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

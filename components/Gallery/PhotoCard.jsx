@@ -47,7 +47,7 @@ export default function SimpleCard({ picture }) {
           image={picture.link !== undefined ? picture.link : ""}
         />
       </CardActionArea>
-      <IconButton onClick={handlePrevClick}>
+      <IconButton onClick={handleNextClick}>
         <NavigateNextIcon />
       </IconButton>
     </Card>

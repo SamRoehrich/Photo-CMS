@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 
 import { useGalleryState } from "./GalleryContext";
@@ -17,18 +17,18 @@ const useStyles = makeStyles({
 
 const Gallery = ({ pics }) => {
   const classes = useStyles();
-  const currentPhotoRef = useRef(null);
+  const [currentPhoto, setCurrentPhoto] = useState(null);
   const { state, dispatch } = useGalleryState();
   useEffect(() => {
     dispatch({ type: "load-photos", payload: pics });
-    currentPhotoRef.current = state.photos[state.currentPhotoIndex];
+    setCurrentPhoto(state.photos[state.currentPhotoIndex]);
   }, [pics]);
 
   useEffect(() => {
-    currentPhotoRef.current = state.photos[state.currentPhotoIndex];
+    setCurrentPhoto(state.photos[state.currentPhotoIndex]);
     console.log("ref changed");
   }, [state.currentPhotoIndex]);
 
-  return <div>{currentPhotoRef.current}</div>;
+  return <div>{currentPhoto}</div>;
 };
 export default Gallery;
