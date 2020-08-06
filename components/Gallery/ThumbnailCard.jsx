@@ -8,18 +8,35 @@ const useStyles = makeStyles({
     minWidth: 100,
     margin: 10,
     marginLeft: 50,
+    border: "3px solid white",
+  },
+  activeRoot: {
+    minWidth: 100,
+    margin: 10,
+    marginLeft: 50,
+    border: "2px solid #E6714A",
   },
   media: {
-    height: 200,
+    height: 150,
     width: 200,
   },
 });
 
-const ThumbnailCard = ({ thumbnail }) => {
+const ThumbnailCard = ({ thumbnail, index }) => {
   const classes = useStyles();
-  const { state } = useGalleryState();
+  const { state, dispatch } = useGalleryState();
+
+  function handleThumbnailClick(index) {
+    console.log(index);
+    dispatch({ type: "thumbnail-click", payload: index });
+  }
   return (
-    <Card className={classes.root}>
+    <Card
+      className={
+        index === state.currentPhotoIndex ? classes.activeRoot : classes.root
+      }
+      onClick={() => handleThumbnailClick(index)}
+    >
       <CardActionArea>
         <CardMedia
           className={classes.media}

@@ -10,12 +10,12 @@ const useStyles = makeStyles({
     marginBottom: 15,
     "&:hover": {
       color: "black",
-      borderBottom: "solid red",
+      borderBottom: "solid #E6714A",
       transition: ".25s",
     },
   },
   active: {
-    borderBottom: "2.5px solid red",
+    borderBottom: "2.5px solid #E6714A",
     color: "black",
     transition: ".75s",
     borderRadius: 0,

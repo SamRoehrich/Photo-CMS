@@ -55,6 +55,10 @@ function reducer(state, action) {
           : state.photos.length - 1;
       return { ...state, currentPhotoIndex: nextIndex };
     }
+    case "thumbnail-click": {
+      let currentPhotoIndex = action.payload;
+      return { ...state, currentPhotoIndex };
+    }
     default:
       return state;
   }

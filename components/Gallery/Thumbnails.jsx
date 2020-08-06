@@ -12,8 +12,8 @@ const useStyles = makeStyles({
     overflow: "hidden",
   },
   gridList: {
-    height: 1000,
-    width: 300,
+    height: "calc(100vh - 80px)",
+    // width: 300,
   },
 });
 
@@ -22,9 +22,9 @@ const Thumbnails = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <GridList cols={1} cellHeight="auto" className={classes.gridList}>
-        {state.thumbnails.map((item) => (
-          <ThumbnailCard thumbnail={item} />
+      <GridList cols={1} cellHeight={150} className={classes.gridList}>
+        {state.thumbnails.map((item, i) => (
+          <ThumbnailCard thumbnail={item} index={i} />
         ))}
       </GridList>
     </div>
