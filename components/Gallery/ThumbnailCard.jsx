@@ -7,18 +7,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 140,
     margin: 10,
-    marginLeft: 50,
     border: "2px solid white",
   },
   activeRoot: {
     minWidth: 140,
     margin: 10,
-    marginLeft: 50,
     border: `2px solid ${theme.palette.primary.secondary}`,
   },
   media: {
     height: "calc(20vh)",
-    width: "calc(20vh))",
+    width: "calc(20vw))",
   },
 }));
 

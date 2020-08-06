@@ -12,7 +12,7 @@ import { useGalleryState } from "./GalleryContext";
 
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
-    minWidth: 550,
+    minWidth: 350,
     margin: 10,
     display: "flex",
     border: `${props.borderWidth || 5} solid ${

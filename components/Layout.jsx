@@ -19,13 +19,16 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
+  base: {
+    width: "100%",
+  },
 });
 
 const Layout = ({ children }) => {
   const classes = useStyles();
   const router = useRouter();
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" className={classes.base}>
       <Grid item>
         <Header />
       </Grid>
