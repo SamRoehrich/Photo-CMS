@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     display: "flex",
   },
   media: {
-    height: 1000,
+    height: "calc(100vh - 80px)",
   },
 });
 
