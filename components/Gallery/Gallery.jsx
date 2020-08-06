@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 const Gallery = ({ pics }) => {
   const classes = useStyles();
-  const currentPhotoRef = useRef();
+  const currentPhotoRef = useRef(null);
   const { state, dispatch } = useGalleryState();
   useEffect(() => {
     dispatch({ type: "load-photos", payload: pics });
@@ -29,6 +29,6 @@ const Gallery = ({ pics }) => {
     console.log("ref changed");
   }, [state.currentPhotoIndex]);
 
-  return <div ref={currentPhotoRef} />;
+  return <div>{currentPhotoRef.current}</div>;
 };
 export default Gallery;

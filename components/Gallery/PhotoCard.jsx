@@ -12,8 +12,12 @@ const useStyles = makeStyles({
     marginLeft: 50,
     display: "flex",
   },
+  button: {
+    backgroundColor: "none",
+  },
   media: {
     height: "calc(100vh - 80px)",
+    border: "25px solid white",
   },
 });
 
@@ -34,7 +38,7 @@ export default function SimpleCard({ picture }) {
   console.log(picture);
   return (
     <Card className={classes.root}>
-      <IconButton onClick={handlePrevClick}>
+      <IconButton onClick={handlePrevClick} className={classes.button}>
         <NavigateBeforeIcon />
       </IconButton>
       <CardActionArea>
