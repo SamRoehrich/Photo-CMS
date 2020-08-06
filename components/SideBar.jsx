@@ -1,5 +1,7 @@
 import SideBarLink from "./SideBarLink";
 import { makeStyles } from "@material-ui/styles";
+import { useRouter } from "next/router";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -15,7 +17,15 @@ const useStyles = makeStyles({
 
 const SideBar = () => {
   const classes = useStyles();
-  return (
+  const router = useRouter();
+  return router.pathname.includes("admin") ? (
+    <div className={classes.root}>
+      <SideBarLink text="Home" href="" />
+      <SideBarLink text="upload-image" href="upload-image" />
+      <SideBarLink text="manage-photos" href="manage-photos" />
+      <Button>Deploy Changes</Button>
+    </div>
+  ) : (
     <div className={classes.root}>
       <SideBarLink text="Home" href="" />
       <SideBarLink text="Climbing" href="climbing" />

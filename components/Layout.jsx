@@ -1,8 +1,9 @@
 import { Grid, Hidden } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import { useRouter } from "next/router";
+
 import Header from "./Header";
 import SideBar from "./SideBar";
-
-import { makeStyles } from "@material-ui/styles";
 import Thumbnails from "./Gallery/Thumbnails";
 
 const useStyles = makeStyles({
@@ -16,6 +17,7 @@ const useStyles = makeStyles({
 
 const Layout = ({ children }) => {
   const classes = useStyles();
+  const router = useRouter();
   return (
     <Grid container direction="column">
       <Grid item>
@@ -27,13 +29,25 @@ const Layout = ({ children }) => {
             <SideBar />
           </Hidden>
         </Grid>
-        <Grid item xs={12} sm={8}>
-          {children}
-        </Grid>
+        {router.pathname.includes("admin") ? (
+          <Grid item sm={11}>
+            {children}
+          </Grid>
+        ) : (
+          <Grid item xs={12} sm={8}>
+            {children}
+          </Grid>
+        )}
         <Grid item xs={false} sm={3}>
-          <Hidden smDown>
-            <Thumbnails />
-          </Hidden>
+          {router.pathname.includes("admin") ? (
+            <Hidden xlDown>
+              <Thumbnails />
+            </Hidden>
+          ) : (
+            <Hidden smDown>
+              <Thumbnails />
+            </Hidden>
+          )}
         </Grid>
       </Grid>
     </Grid>

@@ -5,27 +5,29 @@ import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { useGalleryState } from "./GalleryContext";
 
-const useStyles = makeStyles({
-  root: {
+const useStyles = makeStyles((theme) => ({
+  root: (props) => ({
     minWidth: 100,
     margin: 10,
     marginLeft: 50,
     display: "flex",
-  },
+    border: `${props.borderWidth || 5} solid ${
+      theme.palette.primary.secondary
+    }`,
+  }),
   button: {
     backgroundColor: "none",
   },
-  media: {
+  media: (props) => ({
     height: "calc(100vh - 80px)",
-    // figure out a way to use info from db to assign the border width
-    //would be cool to switch border based on theme color
-    // can do this with props (https://stackoverflow.com/questions/56111294/how-to-use-theme-and-props-in-makestyles)
-    border: "25px solid white",
-  },
-});
+    border: `${props.borderWidth || 5} solid ${
+      theme.palette.primary.secondary
+    }`,
+  }),
+}));
 
 export default function SimpleCard({ picture }) {
-  const classes = useStyles();
+  const classes = useStyles(picture);
 
   const { state, dispatch } = useGalleryState();
 
@@ -38,7 +40,7 @@ export default function SimpleCard({ picture }) {
     e.preventDefault();
     dispatch({ type: "move-forward" });
   }
-  console.log(picture);
+  console.log("picture" + picture);
   return (
     <Card className={classes.root}>
       <IconButton onClick={handlePrevClick} className={classes.button}>
