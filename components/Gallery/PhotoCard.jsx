@@ -17,6 +17,9 @@ const useStyles = makeStyles({
   },
   media: {
     height: "calc(100vh - 80px)",
+    // figure out a way to use info from db to assign the border width
+    //would be cool to switch border based on theme color
+    // can do this with props (https://stackoverflow.com/questions/56111294/how-to-use-theme-and-props-in-makestyles)
     border: "25px solid white",
   },
 });

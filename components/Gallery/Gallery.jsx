@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/styles";
+import { useRouter } from "next/router";
 
 import { useGalleryState } from "./GalleryContext";
 
@@ -18,7 +19,12 @@ const useStyles = makeStyles({
 const Gallery = ({ pics }) => {
   const classes = useStyles();
   const [currentPhoto, setCurrentPhoto] = useState(null);
+  const router = useRouter();
   const { state, dispatch } = useGalleryState();
+
+  useEffect(() => {
+    dispatch({ type: "page-change" });
+  }, [router]);
   useEffect(() => {
     dispatch({ type: "load-photos", payload: pics });
     setCurrentPhoto(state.photos[state.currentPhotoIndex]);
@@ -26,8 +32,7 @@ const Gallery = ({ pics }) => {
 
   useEffect(() => {
     setCurrentPhoto(state.photos[state.currentPhotoIndex]);
-    console.log("ref changed");
-  }, [state.currentPhotoIndex]);
+  }, [state.currentPhotoIndex, currentPhoto]);
 
   return <div>{currentPhoto}</div>;
 };

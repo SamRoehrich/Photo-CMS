@@ -59,6 +59,10 @@ function reducer(state, action) {
       let currentPhotoIndex = action.payload;
       return { ...state, currentPhotoIndex };
     }
+    case "page-change": {
+      let currentPhotoIndex = 0;
+      return { ...state, currentPhotoIndex };
+    }
     default:
       return state;
   }

@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         <Header />
       </Grid>
       <Grid item container>
-        <Grid item xs={false} sm={2} className={classes.sideBar}>
+        <Grid item xs={false} sm={1} className={classes.sideBar}>
           <Hidden smDown>
             <SideBar />
           </Hidden>
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
         <Grid item xs={12} sm={8}>
           {children}
         </Grid>
-        <Grid item xs={false} sm={2}>
+        <Grid item xs={false} sm={3}>
           <Hidden smDown>
             <Thumbnails />
           </Hidden>

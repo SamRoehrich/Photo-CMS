@@ -1,4 +1,4 @@
-import { GridList } from "@material-ui/core";
+import { GridList, GridListTile } from "@material-ui/core";
 
 import { useGalleryState } from "./GalleryContext";
 import ThumbnailCard from "./ThumbnailCard";
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
   gridList: {
     height: "calc(100vh - 80px)",
-    // width: 300,
+    width: "100%",
   },
 });
 
@@ -22,9 +22,11 @@ const Thumbnails = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <GridList cols={1} cellHeight={150} className={classes.gridList}>
+      <GridList cols={2.5} cellHeight={150} className={classes.gridList}>
         {state.thumbnails.map((item, i) => (
-          <ThumbnailCard thumbnail={item} index={i} />
+          <GridListTile>
+            <ThumbnailCard thumbnail={item} index={i} />
+          </GridListTile>
         ))}
       </GridList>
     </div>

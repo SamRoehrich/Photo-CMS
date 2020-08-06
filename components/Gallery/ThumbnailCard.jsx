@@ -5,20 +5,20 @@ import { useGalleryState } from "./GalleryContext";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 100,
+    minWidth: 250,
     margin: 10,
     marginLeft: 50,
-    border: "3px solid white",
+    border: "2px solid white",
   },
   activeRoot: {
-    minWidth: 100,
+    minWidth: 250,
     margin: 10,
     marginLeft: 50,
     border: "2px solid #E6714A",
   },
   media: {
-    height: 150,
-    width: 200,
+    height: 200,
+    width: 250,
   },
 });
 
@@ -27,7 +27,6 @@ const ThumbnailCard = ({ thumbnail, index }) => {
   const { state, dispatch } = useGalleryState();
 
   function handleThumbnailClick(index) {
-    console.log(index);
     dispatch({ type: "thumbnail-click", payload: index });
   }
   return (

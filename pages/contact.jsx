@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SideBar from "../components/SideBar";
+import { useEffect } from "react";
 
 const ContactForm = styled.form`
   width: 80%;
@@ -10,6 +11,9 @@ const ContactForm = styled.form`
 `;
 
 const ContactPage = () => {
+  useEffect(() => {
+    document.title = "Kyle Garrett Photo | Contact";
+  });
   return (
     <div>
       <ContactForm>
