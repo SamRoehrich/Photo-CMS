@@ -3,24 +3,24 @@ import Card from "@material-ui/core/Card";
 import { CardMedia, CardActionArea } from "@material-ui/core";
 import { useGalleryState } from "./GalleryContext";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 250,
+    minWidth: 140,
     margin: 10,
     marginLeft: 50,
     border: "2px solid white",
   },
   activeRoot: {
-    minWidth: 250,
+    minWidth: 140,
     margin: 10,
     marginLeft: 50,
-    border: "2px solid #E6714A",
+    border: `2px solid ${theme.palette.primary.secondary}`,
   },
   media: {
-    height: 200,
-    width: 250,
+    height: 140,
+    width: 140,
   },
-});
+}));
 
 const ThumbnailCard = ({ thumbnail, index }) => {
   const classes = useStyles();

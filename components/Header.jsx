@@ -14,9 +14,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   textStyles: {
-    color: "#E6714A",
+    color: `${theme.palette.primary.secondary}`,
     // marginLeft: "60px",
     margin: "0 auto",
     fontWeight: 500,
@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   iconStyles: {
-    color: "#E6714A",
+    color: `${theme.palette.primary.secondary}`,
   },
 }));
 

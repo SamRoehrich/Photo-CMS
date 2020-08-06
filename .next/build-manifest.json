@@ -24,11 +24,11 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/index": [
+    "/climbing": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/notclimbing": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

@@ -22,9 +22,14 @@ const Thumbnails = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <GridList cols={2.5} cellHeight={150} className={classes.gridList}>
+      <GridList
+        cols={2}
+        cellHeight={140}
+        className={classes.gridList}
+        spacing={1}
+      >
         {state.thumbnails.map((item, i) => (
-          <GridListTile>
+          <GridListTile style={{ height: "auto", width: "auto" }}>
             <ThumbnailCard thumbnail={item} index={i} />
           </GridListTile>
         ))}

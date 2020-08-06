@@ -36,9 +36,6 @@ function reducer(state, action) {
       pictures.sort((a, b) => b.tagIndex - a.tagIndex);
       thumbnails.sort((a, b) => b.tagIndex - a.tagIndex);
       let photos = pictures.map((photo) => <PhotoCard picture={photo} />);
-      // let thumbnailCards = thumbnails.map((item) => (
-      //   <ThumbnailCard thumbnmail={item} />
-      // ));
       return { ...state, photos, thumbnails };
     }
     case "move-forward": {
