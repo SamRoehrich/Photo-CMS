@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
       </Grid>
       <Grid item container>
         <Grid item xs={false} sm={2} className={classes.sideBar}>
-          <Hidden only="sm">
+          <Hidden smDown>
             <SideBar />
           </Hidden>
         </Grid>
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
           {children}
         </Grid>
         <Grid item xs={false} sm={2}>
-          <Hidden only="sm">
+          <Hidden smDown>
             <Thumbnails />
           </Hidden>
         </Grid>
