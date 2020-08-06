@@ -7,7 +7,7 @@ import { useGalleryState } from "./GalleryContext";
 const useStyles = makeStyles({
   root: {
     marginTop: "40px",
-    margin: "0 auto",
+    // margin: "0 auto",
   },
   media: {
     height: 700,

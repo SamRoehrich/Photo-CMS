@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     border: `2px solid ${theme.palette.primary.secondary}`,
   },
   media: {
-    height: 140,
-    width: 140,
+    height: "calc(20vh)",
+    width: "calc(20vh))",
   },
 }));
 

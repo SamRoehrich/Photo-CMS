@@ -11,8 +11,18 @@ const useStyles = makeStyles({
     justifyContent: "space-around",
     overflow: "hidden",
   },
+  mobileRoot: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
+  },
   gridList: {
     height: "calc(100vh - 80px)",
+    width: "100%",
+  },
+  mobileList: {
+    flexWrap: "nowrap",
     width: "100%",
   },
 });
@@ -21,11 +31,15 @@ const Thumbnails = () => {
   const { state, dispatch } = useGalleryState();
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div
+      className={window.innerWidth > 400 ? classes.root : classes.mobileRoot}
+    >
       <GridList
         cols={2}
         cellHeight={140}
-        className={classes.gridList}
+        className={
+          window.innerWidth > 400 ? classes.gridList : classes.mobileList
+        }
         spacing={1}
       >
         {state.thumbnails.map((item, i) => (

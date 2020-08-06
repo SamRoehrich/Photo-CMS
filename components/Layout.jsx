@@ -13,6 +13,12 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 
 const Layout = ({ children }) => {
@@ -50,6 +56,11 @@ const Layout = ({ children }) => {
           )}
         </Grid>
       </Grid>
+      <Hidden smUp>
+        <Grid item container>
+          <Thumbnails />
+        </Grid>
+      </Hidden>
     </Grid>
   );
 };
