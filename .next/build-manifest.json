@@ -23,10 +23,6 @@
     "/admin": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
-    ],
-    "/admin/manage-photos": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
     ]
   }
 }
