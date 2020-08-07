@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   textStyles: {
-    color: `${theme.palette.primary.secondary}`,
+    color: `${theme.palette.text.primary}`,
     // marginLeft: "60px",
     margin: "0 auto",
     fontWeight: 500,
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconStyles: {
     marginRight: 20,
-    color: `${theme.palette.primary.secondary}`,
+    color: `${theme.palette.text.primary}`,
   },
 }));
 

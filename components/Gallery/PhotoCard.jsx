@@ -30,6 +30,16 @@ const useStyles = makeStyles((theme) => ({
     }`,
     objectFit: "contain",
   }),
+  backButton: {
+    marginTop: "45vh",
+    marginLeft: "1vw",
+    color: "white",
+  },
+  nextButton: {
+    marginTop: "45vh",
+    marginLeft: "65vw",
+    color: "white",
+  },
 }));
 
 export default function SimpleCard({ picture }) {
@@ -49,20 +59,29 @@ export default function SimpleCard({ picture }) {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <Hidden smDown>
-          <IconButton onClick={handlePrevClick}>
-            <NavigateBeforeIcon />
-          </IconButton>
-        </Hidden>
         <CardMedia
           className={classes.media}
           image={picture.link !== undefined ? picture.link : ""}
-        />
-        <Hidden smDown>
-          <IconButton onClick={handleNextClick}>
-            <NavigateNextIcon />
-          </IconButton>
-        </Hidden>
+        >
+          {/* <div className={classes.buttons}> */}
+          <Hidden smDown>
+            <IconButton
+              onClick={handlePrevClick}
+              className={classes.backButton}
+            >
+              <NavigateBeforeIcon fontSize="large" />
+            </IconButton>
+          </Hidden>
+          <Hidden smDown>
+            <IconButton
+              onClick={handleNextClick}
+              className={classes.nextButton}
+            >
+              <NavigateNextIcon fontSize="large" />
+            </IconButton>
+          </Hidden>
+          {/* </div> */}
+        </CardMedia>
       </CardActionArea>
     </Card>
   );

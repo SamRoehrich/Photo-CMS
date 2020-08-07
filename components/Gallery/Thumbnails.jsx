@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
   mobileList: {
     marginTop: 30,
-    height: "calc(100vh - 80px)",
+    height: "calc(35vh - 80px)",
     flexWrap: "nowrap",
     width: "100%",
   },

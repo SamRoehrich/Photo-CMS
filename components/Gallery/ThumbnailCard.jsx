@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) => ({
   activeRoot: {
     minWidth: 140,
     margin: 10,
-    border: `2px solid ${theme.palette.primary.secondary}`,
+    border: `2px solid ${theme.palette.secondary.main}`,
   },
   media: {
-    height: "calc(20vh)",
-    width: "calc(20vw))",
+    height: 100,
+    width: 140,
   },
 }));
 
