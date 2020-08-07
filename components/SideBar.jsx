@@ -20,9 +20,9 @@ const SideBar = () => {
   const router = useRouter();
   return router.pathname.includes("admin") ? (
     <div className={classes.root}>
-      <SideBarLink text="Home" href="" />
-      <SideBarLink text="upload-image" href="upload-image" />
-      <SideBarLink text="manage-photos" href="manage-photos" />
+      <SideBarLink text="Home" href="admin" />
+      <SideBarLink text="upload-image" href="admin/upload-photo" />
+      <SideBarLink text="manage-photos" href="admin/manage-photos" />
       <Button>Deploy Changes</Button>
     </div>
   ) : (

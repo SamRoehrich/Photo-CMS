@@ -26,7 +26,7 @@ const AdminPhotoUpload = () => {
   const [tag, setTag] = useState("home");
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
-  const [borderWidth, setBorderWidth] = useState(26);
+  const [borderWidth, setBorderWidth] = useState(5);
   const [cloudLocation, setCloudLocation] = useState("");
   const [description, setDescription] = useState("");
   const [cloudLink, setCloudLink] = useState("");
