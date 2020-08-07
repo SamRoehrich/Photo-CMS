@@ -20,8 +20,11 @@ const useStyles = makeStyles({
   gridList: {
     height: "calc(100vh - 80px)",
     width: "100%",
+    flexWrap: "wrap",
   },
   mobileList: {
+    marginTop: 30,
+    height: "calc(100vh - 80px)",
     flexWrap: "nowrap",
     width: "100%",
   },
@@ -32,18 +35,18 @@ const Thumbnails = () => {
   const classes = useStyles();
   return (
     <div
-      className={window.innerWidth > 400 ? classes.root : classes.mobileRoot}
+      className={window.innerWidth < 700 ? classes.root : classes.mobileRoot}
     >
       <GridList
         cols={2}
         cellHeight={140}
         className={
-          window.innerWidth > 400 ? classes.gridList : classes.mobileList
+          window.innerWidth < 700 ? classes.mobileList : classes.gridList
         }
         spacing={1}
       >
         {state.thumbnails.map((item, i) => (
-          <GridListTile style={{ height: "auto", width: "auto" }}>
+          <GridListTile>
             <ThumbnailCard thumbnail={item} index={i} />
           </GridListTile>
         ))}

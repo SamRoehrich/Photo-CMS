@@ -43,11 +43,11 @@ const Layout = ({ children }) => {
             {children}
           </Grid>
         ) : (
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={9}>
             {children}
           </Grid>
         )}
-        <Grid item xs={false} sm={3}>
+        <Grid item xs={false} sm={2}>
           {router.pathname.includes("admin") ? (
             <Hidden xlDown>
               <Thumbnails />

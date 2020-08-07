@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   iconStyles: {
+    marginRight: 20,
     color: `${theme.palette.primary.secondary}`,
   },
 }));

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   media: (props) => ({
-    height: window.innerWidth > 400 ? "calc(100vh - 80px)" : "60vh",
+    height: window.innerWidth > 700 ? "calc(100vh - 80px)" : "60vh",
     width: "100%",
     border: `${props.borderWidth || 5} solid ${
       theme.palette.primary.secondary
