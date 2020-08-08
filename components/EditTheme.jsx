@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     height: 300,
     width: "20vw",
     margin: 10,
+    backgroundColor: theme.palette.background.default,
   },
 }));
 
@@ -39,88 +40,38 @@ const EditTheme = () => {
       .then((result) => setTheme(result[0]))
       .then(() => setLoading(false));
   }, [id]);
-  console.log(theme);
   return (
     loading === false && (
-      <Paper className={classes.root}>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.primaryColor }}
-        >
-          <Typography variant="caption" style={{ textAlign: "center" }}>
-            Primary Color
-          </Typography>
-          <TextField value={theme.primaryColor} />
-          <Button>Change Color</Button>
-        </Card>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.secondaryColor }}
-        >
-          <Typography variant="caption" style={{ textAlign: "center" }}>
-            Secondary Color
-          </Typography>
-          <TextField value={theme.secondaryColor} />
-          <Button>Change Color</Button>
-        </Card>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.tertiaryColor }}
-        >
-          <Typography variant="caption" style={{ textAlign: "center" }}>
-            Tertiary Color
-          </Typography>
-          <TextField value={theme.tertiaryColor} />
-          <Button>Change Color</Button>
-        </Card>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.ascentColor }}
-        >
-          <Typography variant="caption" style={{ textAlign: "center" }}>
-            Ascent Color
-          </Typography>
-          <TextField value={theme.ascentColor} />
-          <Button>Change Color</Button>
-        </Card>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.backgroundColor }}
-        >
-          <Typography variant="caption" style={{ textAlign: "center" }}>
-            Background Color
-          </Typography>
-          <TextField value={theme.backgroundColor} />
-          <Button>Change Color</Button>
-        </Card>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.textPrimaryColor }}
-        >
-          <Typography
-            variant="caption"
-            style={{ textAlign: "center", color: "white" }}
-          >
-            Text Primary Color
-          </Typography>
-          <TextField
-            value={theme.textPrimaryColor}
-            style={{ color: "white" }}
-          />
-          <Button>Change Color</Button>
-        </Card>
-        <Card
-          className={classes.card}
-          style={{ backgroundColor: theme.textSecondaryColor }}
-        >
-          <Typography variant="caption" style={{ textAlign: "center" }}>
-            Text Secondary Color
-          </Typography>
-          <TextField value={theme.textSecondaryColor} />
-          <Button>Change Color</Button>
-        </Card>
-      </Paper>
+      <>
+        <Paper className={classes.root}>
+          {Object.entries(theme).map((item) => {
+            return <EditCard item={item} />;
+          })}
+          <Button style={{ backgroundColor: "yellow" }}>
+            Finialize Theme changes
+          </Button>
+        </Paper>
+      </>
     )
   );
 };
 export default EditTheme;
+
+const EditCard = (item) => {
+  const [key, value] = item.item;
+  const [inputValue, setInputValue] = useState(value);
+  const classes = useStyles();
+  return (
+    <Card className={classes.card}>
+      <Typography variant="body1" style={{ textAlign: "center" }}>
+        {key}
+      </Typography>
+      <TextField
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <div style={{ width: "100%", height: "50px", backgroundColor: value }} />
+      <Button disabled={key == "id" ? true : false}>Change Value</Button>
+    </Card>
+  );
+};

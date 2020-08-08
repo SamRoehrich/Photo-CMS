@@ -5,18 +5,18 @@ import { useGalleryState } from "./GalleryContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 140,
+    minWidth: 130,
     margin: 10,
     border: "2px solid white",
   },
   activeRoot: {
-    minWidth: 140,
+    minWidth: 130,
     margin: 10,
     border: `2px solid ${theme.palette.secondary.main}`,
   },
   media: {
-    height: 100,
-    width: 140,
+    height: 140,
+    width: 180,
   },
 }));
 

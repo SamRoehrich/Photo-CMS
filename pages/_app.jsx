@@ -1,5 +1,4 @@
 import "fontsource-roboto";
-import "react-alice-carousel/lib/alice-carousel.css";
 import Theme from "../components/Theme";
 import Layout from "../components/Layout";
 import { Auth0Provider } from "@auth0/auth0-react";
