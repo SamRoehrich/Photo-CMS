@@ -7,16 +7,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: "black",
     borderRadius: 0,
-    marginBottom: 15,
+    // marginBottom: 15,
     "&:hover": {
       color: "black",
-      borderBottom: `2.5px solid ${theme.palette.secondary.main}`,
+      backgroundColor: theme.palette.secondary.main,
       transition: ".25s",
     },
   },
   active: {
-    borderBottom: `2.5px solid ${theme.palette.secondary.main}`,
     color: "black",
+    backgroundColor: theme.palette.secondary.main,
     transition: ".75s",
     borderRadius: 0,
   },

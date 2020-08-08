@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   media: (props) => ({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     height: window.innerWidth > 700 ? "calc(100vh - 80px)" : "60vh",
     width: "100%",
     border: `${props.borderWidth || 5} solid ${
@@ -31,12 +34,10 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "contain",
   }),
   backButton: {
-    marginTop: "45vh",
     marginLeft: "1vw",
     color: "white",
   },
   nextButton: {
-    marginTop: "45vh",
     marginLeft: "65vw",
     color: "white",
   },
@@ -64,22 +65,16 @@ export default function SimpleCard({ picture }) {
           image={picture.link !== undefined ? picture.link : ""}
         >
           {/* <div className={classes.buttons}> */}
-          <Hidden smDown>
-            <IconButton
-              onClick={handlePrevClick}
-              className={classes.backButton}
-            >
-              <NavigateBeforeIcon fontSize="large" />
-            </IconButton>
-          </Hidden>
-          <Hidden smDown>
-            <IconButton
-              onClick={handleNextClick}
-              className={classes.nextButton}
-            >
-              <NavigateNextIcon fontSize="large" />
-            </IconButton>
-          </Hidden>
+          {/* <Hidden smDown> */}
+          <IconButton onClick={handlePrevClick} className={classes.backButton}>
+            <NavigateBeforeIcon fontSize="large" />
+          </IconButton>
+          {/* </Hidden> */}
+          {/* <Hidden smDown> */}
+          <IconButton onClick={handleNextClick} className={classes.nextButton}>
+            <NavigateNextIcon fontSize="large" />
+          </IconButton>
+          {/* </Hidden> */}
           {/* </div> */}
         </CardMedia>
       </CardActionArea>
