@@ -24,7 +24,7 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/climbing": [
+    "/admin/edit-theme": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

@@ -8,6 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { useEditThemeState } from "../pages/admin/edit-theme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,26 +29,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const EditTheme = () => {
-  const [theme, setTheme] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [id, setId] = useState(0);
+  const { state, dispatch } = useEditThemeState();
   const classes = useStyles();
+  function handleSubmit() {
+    console.log("sumbit triggered");
+    fetch("http://localhost:5000/admin/edit-theme", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify({ theme: state.theme }),
+    });
+  }
   useEffect(() => {
     fetch("http://localhost:5000/theme", {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((result) => setTheme(result[0]))
-      .then(() => setLoading(false));
-  }, [id]);
+      .then((jsonTheme) =>
+        dispatch({ type: "load-theme", payload: jsonTheme })
+      );
+  }, [state.loading]);
   return (
-    loading === false && (
+    state.loading === false && (
       <>
         <Paper className={classes.root}>
-          {Object.entries(theme).map((item) => {
+          {Object.entries(state.theme).map((item) => {
             return <EditCard item={item} />;
           })}
-          <Button style={{ backgroundColor: "yellow" }}>
+          <Button
+            style={{ backgroundColor: "yellow" }}
+            onClick={() => handleSubmit()}
+          >
             Finialize Theme changes
           </Button>
         </Paper>
@@ -58,9 +72,13 @@ const EditTheme = () => {
 export default EditTheme;
 
 const EditCard = (item) => {
+  const { dispatch } = useEditThemeState();
   const [key, value] = item.item;
   const [inputValue, setInputValue] = useState(value);
   const classes = useStyles();
+  function handleValueChange(key, value) {
+    dispatch({ type: "edit-value", payload: [key, value] });
+  }
   return (
     <Card className={classes.card}>
       <Typography variant="body1" style={{ textAlign: "center" }}>
@@ -71,7 +89,12 @@ const EditCard = (item) => {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <div style={{ width: "100%", height: "50px", backgroundColor: value }} />
-      <Button disabled={key == "id" ? true : false}>Change Value</Button>
+      <Button
+        disabled={key == "id" ? true : false}
+        onClick={() => handleValueChange(key, inputValue)}
+      >
+        Change Value
+      </Button>
     </Card>
   );
 };

@@ -64,18 +64,12 @@ export default function SimpleCard({ picture }) {
           className={classes.media}
           image={picture.link !== undefined ? picture.link : ""}
         >
-          {/* <div className={classes.buttons}> */}
-          {/* <Hidden smDown> */}
           <IconButton onClick={handlePrevClick} className={classes.backButton}>
             <NavigateBeforeIcon fontSize="large" />
           </IconButton>
-          {/* </Hidden> */}
-          {/* <Hidden smDown> */}
           <IconButton onClick={handleNextClick} className={classes.nextButton}>
             <NavigateNextIcon fontSize="large" />
           </IconButton>
-          {/* </Hidden> */}
-          {/* </div> */}
         </CardMedia>
       </CardActionArea>
     </Card>
