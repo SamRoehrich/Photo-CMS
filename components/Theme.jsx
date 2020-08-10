@@ -15,6 +15,7 @@ const Theme = ({ children }) => {
       tertiaryColor,
       textPrimaryColor,
       textSecondaryColor,
+      // borderColor,
     } = theme[0];
 
     var res = {
@@ -32,6 +33,9 @@ const Theme = ({ children }) => {
         warning: {
           main: ascentColor,
         },
+        // success: {
+        //   // main: borderColor,
+        // },
         text: {
           primary: textPrimaryColor,
           secondary: textSecondaryColor,

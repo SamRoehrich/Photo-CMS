@@ -62,7 +62,7 @@ const AdminPhotoUpload = () => {
     )
       .then((res) => res.json())
       .catch((e) => console.log(e));
-    const UPLOAD_PREFIX = `https://res.cloudinary.com/dchopcxko/image/upload/bo_${borderWidth}px_solid_rgb:ffffff,c_scale,h_650/`;
+    const UPLOAD_PREFIX = `https://res.cloudinary.com/dchopcxko/image/upload/c_scale,h_650/`;
     const location = res.url.slice(49);
     const link = UPLOAD_PREFIX + location;
     setThumbnailLink(res.url);
@@ -83,22 +83,19 @@ const AdminPhotoUpload = () => {
       description,
       thumbnailLink,
     };
-    await fetch(
-      "https://kyle-garrett-photo-server.herokuapp.com/admin/upload",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
+    await fetch("http://localhost:5000/admin/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    });
     setTag("home");
     setTitle("");
     setCloudLink("");
     setCloudLocation("");
-    setBorderWidth(32);
+    setBorderWidth(5);
     setDescription("");
     setLoading(false);
   }
@@ -134,12 +131,6 @@ const AdminPhotoUpload = () => {
           <MenuItem value="portrait">Portrait</MenuItem>
           <MenuItem value="climbing">Climbing</MenuItem>
         </Select>
-        <TextField
-          type="number"
-          label="Order"
-          defaultValue="0"
-          className={classes.formItem}
-        />
       </FormControl>
 
       <TextField

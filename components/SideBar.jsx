@@ -21,8 +21,9 @@ const SideBar = () => {
   return router.pathname.includes("admin") ? (
     <div className={classes.root}>
       <SideBarLink text="Home" href="admin" />
-      <SideBarLink text="upload-image" href="admin/upload-photo" />
-      <SideBarLink text="manage-photos" href="admin/manage-photos" />
+      <SideBarLink text="Upload an Image" href="admin/upload-photo" />
+      <SideBarLink text="Manage Photos" href="admin/manage-photos" />
+      <SideBarLink text="Edit Theme" href="admin/edit-theme" />
       <Button>Deploy Changes</Button>
     </div>
   ) : (

@@ -5,7 +5,6 @@ import {
   useContext,
   createContext,
 } from "react";
-import { Button } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import EditTheme from "../../components/EditTheme";
 
@@ -29,6 +28,7 @@ function reducer(state, action) {
       }
       return { ...state, theme: updatedTheme };
     }
+
     default:
       return state;
   }
@@ -48,16 +48,12 @@ export function useEditThemeState() {
 const EditThemePage = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
-  //   return isAuthenticated ? (
-  //     <EditTheme />
-  //   ) : (
-  //     <Button onClick={() => loginWithRedirect()}>Login</Button>
-  //   );
-
-  return (
+  return isAuthenticated ? (
     <EditThemeState>
       <EditTheme />
     </EditThemeState>
+  ) : (
+    <Button onClick={() => loginWithRedirect()}>Login</Button>
   );
 };
 export default EditThemePage;

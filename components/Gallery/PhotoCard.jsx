@@ -1,11 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import {
-  CardMedia,
-  CardActionArea,
-  IconButton,
-  Hidden,
-} from "@material-ui/core";
+import { CardMedia, CardActionArea, IconButton } from "@material-ui/core";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { useGalleryState } from "./GalleryContext";
@@ -15,9 +10,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 350,
     margin: 10,
     display: "flex",
-    border: `${props.borderWidth || 5} solid ${
-      theme.palette.primary.secondary
-    }`,
+    border: `${props.borderWidth || 5} solid ${theme.palette.success.main}`,
   }),
   actionArea: {
     display: "flex",
@@ -28,9 +21,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: window.innerWidth > 700 ? "calc(100vh - 80px)" : "60vh",
     width: "100%",
-    border: `${props.borderWidth || 5} solid ${
-      theme.palette.primary.secondary
-    }`,
+    border: `${props.borderWidth || 5} solid ${theme.palette.success.main}`,
     objectFit: "contain",
   }),
   backButton: {
