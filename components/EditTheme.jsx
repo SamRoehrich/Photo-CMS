@@ -47,14 +47,9 @@ const EditTheme = () => {
     );
   }
   useEffect(() => {
-    fetch(
-      process.env.NODE_ENV == "production"
-        ? process.env.PRODUCTION_API_URL + "theme"
-        : "http://localhost:5000/theme",
-      {
-        method: "GET",
-      }
-    )
+    fetch("https://kyle-garrett-photo-server.herokuapp.com/theme", {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((jsonTheme) =>
         dispatch({ type: "load-theme", payload: jsonTheme })
