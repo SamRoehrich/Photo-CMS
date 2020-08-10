@@ -38,7 +38,8 @@ const Layout = ({ children }) => {
             <SideBar />
           </Hidden>
         </Grid>
-        {router.pathname.includes("admin") ? (
+        {router.pathname.includes("admin") ||
+        router.pathname.includes("about") ? (
           <Grid item sm={11}>
             {children}
           </Grid>
