@@ -68,8 +68,6 @@ const DropDownMenu = () => {
     setOpen(null);
   }
 
-  console.log(router);
-
   return (
     <div>
       <Button onClick={handleBurgerIconClick}>

@@ -83,14 +83,20 @@ const AdminPhotoUpload = () => {
       description,
       thumbnailLink,
     };
-    await fetch("http://localhost:5000/admin/upload", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+
+    await fetch(
+      process.env.NODE_ENV == "production"
+        ? PRODUCTION_API_URL + "admin/upload"
+        : "http://localhost:5000/admin/upload",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     setTag("home");
     setTitle("");
     setCloudLink("");

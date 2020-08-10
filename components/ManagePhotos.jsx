@@ -40,7 +40,9 @@ const ManagePhotos = () => {
 
   const fetchPictures = async () => {
     const result = await fetch(
-      "https://kyle-garrett-photo-server.herokuapp.com/photos/all"
+      process.env.NODE_ENV == "production"
+        ? PRODUCTION_API_URL + "admin/update"
+        : "http://localhost:5000/admin/update"
     )
       .then((pics) => pics.json())
       .then((sorted) => sorted.sort((a, b) => a.tagIndex - b.tagIndex))
@@ -51,18 +53,6 @@ const ManagePhotos = () => {
           return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
         })
       );
-
-    // const photos = await result.map((pic) => pic.isActive);
-    // await result.sort((a, b) => {
-    //   let val1 = a.tag.toUpperCase();
-    //   let val2 = b.tag.toUpperCase();
-    //   return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
-    // });
-    // photos.sort((a, b) => {
-    //   let val1 = a.tagIndex;
-    //   let val2 = b.tagIndex;
-    //   return val1 - val2;
-    // });
     setPhotos(result);
   };
 

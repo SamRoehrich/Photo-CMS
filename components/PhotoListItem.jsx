@@ -54,14 +54,19 @@ const PhotoListItem = ({ photo }) => {
     confirm(
       "This will delete the photo from the website, are you sure you want to do this?"
     );
-    await fetch("http://localhost:5000/admin/deletePhoto", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      method: "DELETE",
-      body: JSON.stringify({ id: photo.id }),
-    });
+    await fetch(
+      process.env.NODE_ENV == "production"
+        ? PRODUCTION_API_URL + "admin/deletePhoto"
+        : "http://localhost:5000/admin/deletePhoto",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        method: "DELETE",
+        body: JSON.stringify({ id: photo.id }),
+      }
+    );
   };
 
   const handleFormSubmit = async (e) => {

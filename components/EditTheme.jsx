@@ -32,20 +32,29 @@ const EditTheme = () => {
   const { state, dispatch } = useEditThemeState();
   const classes = useStyles();
   function handleSubmit() {
-    console.log("sumbit triggered");
-    fetch("http://localhost:5000/admin/edit-theme", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      method: "PUT",
-      body: JSON.stringify({ theme: state.theme }),
-    });
+    fetch(
+      process.env.NODE_ENV == "production"
+        ? PRODUCTION_API_URL + "admin/edit-theme"
+        : "http://localhost:5000/admin/edit-theme",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        method: "PUT",
+        body: JSON.stringify({ theme: state.theme }),
+      }
+    );
   }
   useEffect(() => {
-    fetch("http://localhost:5000/theme", {
-      method: "GET",
-    })
+    fetch(
+      process.env.NODE_ENV == "production"
+        ? PRODUCTION_API_URL + "theme"
+        : "http://localhost:5000/theme",
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((jsonTheme) =>
         dispatch({ type: "load-theme", payload: jsonTheme })

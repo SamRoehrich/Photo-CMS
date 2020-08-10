@@ -15,7 +15,7 @@ const Theme = ({ children }) => {
       tertiaryColor,
       textPrimaryColor,
       textSecondaryColor,
-      // borderColor,
+      borderColor,
     } = theme[0];
 
     var res = {
@@ -33,9 +33,9 @@ const Theme = ({ children }) => {
         warning: {
           main: ascentColor,
         },
-        // success: {
-        //   // main: borderColor,
-        // },
+        success: {
+          main: borderColor,
+        },
         text: {
           primary: textPrimaryColor,
           secondary: textSecondaryColor,
@@ -88,9 +88,11 @@ const Theme = ({ children }) => {
   }
 
   useEffect(async () => {
-    const apiTheme = await fetch("http://localhost:5000/theme").then((res) =>
-      res.json()
-    );
+    const apiTheme = await fetch(
+      process.env.NODE_ENV == "production"
+        ? PRODUCTION_API_URL + "theme"
+        : "http://localhost:5000/theme"
+    ).then((res) => res.json());
     const builtTheme = await buildTheme(apiTheme);
     const finalTheme = createMuiTheme(builtTheme);
     setTheme(finalTheme);
