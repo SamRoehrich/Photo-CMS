@@ -99,7 +99,7 @@ const Theme = ({ children }) => {
     setLoading(false);
   }, []);
 
-  return loading || theme === null ? (
+  return theme === null ? (
     <div>Loading</div>
   ) : (
     <ThemeProvider theme={theme}>
