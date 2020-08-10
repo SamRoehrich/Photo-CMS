@@ -89,9 +89,7 @@ const Theme = ({ children }) => {
 
   useEffect(async () => {
     const apiTheme = await fetch(
-      process.env.NODE_ENV == "production"
-        ? process.env.PRODUCTION_API_URL + "theme"
-        : "http://localhost:5000/theme"
+      "https://kyle-garrett-photo-server.herokuapp.com/theme"
     ).then((res) => res.json());
     const builtTheme = await buildTheme(apiTheme);
     const finalTheme = createMuiTheme(builtTheme);
