@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       redirectUri={"https://kgp-hoto.vercel.app/admin"}
     >
       <GalleryState>
-        <Theme theme={finalTheme}>
+        <Theme theme={theme}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
@@ -28,13 +28,14 @@ export default MyApp;
 export async function getStaticProps() {
   const apiTheme = await fetch(
     "https://kyle-garrett-photo-server.herokuapp.com/theme"
-  ).then((res) => res.json());
-  const builtTheme = builtTheme(apiTheme);
-  const finalTheme = createMuiTheme(builtTheme);
+  );
+  await apiTheme.json();
+  const builtTheme = await builtTheme(apiTheme);
+  const theme = createMuiTheme(builtTheme);
 
   return {
     props: {
-      finalTheme,
+      theme,
     },
   };
 }
