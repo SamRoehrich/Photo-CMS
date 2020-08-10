@@ -16,7 +16,6 @@ export async function getStaticProps() {
       : "http://localhost:5000/photos/notclimbing"
   );
   const pics = await res.json();
-  const pics = await res.json();
 
   return {
     props: {
