@@ -85,9 +85,7 @@ const AdminPhotoUpload = () => {
     };
 
     await fetch(
-      process.env.NODE_ENV == "production"
-        ? process.env.PRODUCTION_API_URL + "admin/upload"
-        : "http://localhost:5000/admin/upload",
+      "https://kyle-garrett-photo-server.herokuapp.com/admin/upload",
       {
         method: "POST",
         headers: {
