@@ -99,9 +99,9 @@ const Theme = ({ children }) => {
     setLoading(false);
   }, []);
 
-  return theme === null ? (
-    <div>Loading</div>
-  ) : (
+  if (loading) return <div>loading</div>;
+
+  return (
     <ThemeProvider theme={theme}>
       <CssBaseLine />
       {children}
