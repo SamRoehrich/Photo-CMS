@@ -32,19 +32,14 @@ const EditTheme = () => {
   const { state, dispatch } = useEditThemeState();
   const classes = useStyles();
   function handleSubmit() {
-    fetch(
-      process.env.NODE_ENV == "production"
-        ? process.env.PRODUCTION_API_URL + "admin/edit-theme"
-        : "http://localhost:5000/admin/edit-theme",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        method: "PUT",
-        body: JSON.stringify({ theme: state.theme }),
-      }
-    );
+    fetch("https://kyle-garrett-photo-server.herokuapp.com/admin/edit-theme", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify({ theme: state.theme }),
+    });
   }
   useEffect(() => {
     fetch("https://kyle-garrett-photo-server.herokuapp.com/theme", {
