@@ -3,6 +3,7 @@ import Theme from "../components/Theme";
 import Layout from "../components/Layout";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { GalleryState } from "../components/Gallery/GalleryContext";
+import { createMuiTheme } from "@material-ui/core";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -23,3 +24,17 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+export async function getStaticProps() {
+  const apiTheme = await fetch(
+    "https://kyle-garrett-photo-server.herokuapp.com/theme"
+  ).then((res) => res.json());
+  const builtTheme = builtTheme(apiTheme);
+  const finalTheme = createMuiTheme(builtTheme);
+
+  return {
+    props: {
+      finalTheme,
+    },
+  };
+}

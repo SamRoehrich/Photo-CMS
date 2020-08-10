@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: window.innerWidth > 700 ? "calc(100vh - 80px)" : "60vh",
     width: "100%",
-    border: `${props.borderWidth || 5}px solid ${theme.palette.success.main}`,
+    border: `${props.borderWidth}px solid ${theme.palette.success.main}`,
     objectFit: "contain",
   }),
   backButton: {
