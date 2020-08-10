@@ -45,7 +45,7 @@ const PhotoListItem = ({ photo }) => {
   const [title, setTitle] = useState(photo.title);
   const [tag, setTag] = useState(photo.tag);
   const [order, setOrder] = useState(photo.tagIndex);
-  const [borderWidth, setBorderWidth] = useState(0);
+  const [borderWidth, setBorderWidth] = useState(photo.borderWidth);
 
   const classes = useStyles();
 

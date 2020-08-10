@@ -33,7 +33,6 @@ const SideBar = () => {
       <SideBarLink text="Not Climbing" href="notclimbing" />
       <SideBarLink text="Portraits" href="portraits" />
       <SideBarLink text="About" href="about" />
-      <SideBarLink text="Contact" href="contact" />
     </div>
   );
 };
