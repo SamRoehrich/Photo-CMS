@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       redirectUri={"https://kgp-hoto.vercel.app/admin"}
     >
       <GalleryState>
-        <Theme>
+        <Theme theme={finalTheme}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
