@@ -6,6 +6,7 @@ import { useGalleryState } from "./GalleryContext";
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 130,
+    height: 142,
     margin: 10,
     border: "2px solid white",
   },
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     border: `2px solid ${theme.palette.success.main}`,
   },
   media: {
-    height: 140,
+    height: 120,
     width: 180,
   },
 }));

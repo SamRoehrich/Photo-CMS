@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 350,
     margin: 10,
     display: "flex",
-    border: `${props.borderWidth || 5} solid ${theme.palette.success.main}`,
+    // border: `${props.borderWidth || 5} solid ${theme.palette.success.main}`,
   }),
   actionArea: {
     display: "flex",
