@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: window.innerWidth > 700 ? "calc(100vh - 80px)" : "60vh",
     width: "100%",
-    border: `${props.borderWidth || 5} solid ${theme.palette.success.main}`,
+    border: `${props.borderWidth || 5}px solid ${theme.palette.success.main}`,
     objectFit: "contain",
   }),
   backButton: {
@@ -38,6 +38,8 @@ export default function SimpleCard({ picture }) {
   const classes = useStyles(picture);
 
   const { state, dispatch } = useGalleryState();
+
+  console.log(picture);
 
   function handlePrevClick(e) {
     e.preventDefault();
