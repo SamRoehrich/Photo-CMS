@@ -9,11 +9,7 @@ function MyApp({ Component, pageProps }) {
     <Auth0Provider
       domain="dev-vqkf1a2g.auth0.com"
       clientId="tUIXxPS5ZX1vwDzkzaWd5M58nc17HmO1"
-      redirectUri={
-        process.env.NODE_ENV == "production"
-          ? process.env.FRONTEND_URL + "admin"
-          : "http://localhost:3000/admin"
-      }
+      redirectUri={"https://https://kgp-hoto.vercel.app/admin"}
     >
       <GalleryState>
         <Theme>
