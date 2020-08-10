@@ -40,7 +40,7 @@ const ManagePhotos = () => {
 
   const fetchPictures = async () => {
     const result = await fetch(
-      "https://kyle-garrett-photo-server.herokuapp.com/admin/update"
+      "https://kyle-garrett-photo-server.herokuapp.com//photos/all"
     )
       .then((pics) => pics.json())
       .then((sorted) => sorted.sort((a, b) => a.tagIndex - b.tagIndex))
