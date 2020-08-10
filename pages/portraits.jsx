@@ -8,7 +8,7 @@ export default PortraitsPage;
 export async function getStaticProps() {
   const res = await fetch(
     process.env.NODE_ENV == "production"
-      ? PRODUCTION_API_URL + "photos/portraits"
+      ? process.env.PRODUCTION_API_URL + "photos/portraits"
       : "http://localhost:5000/photos/portraits"
   );
   const pics = await res.json();

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   activeRoot: {
     minWidth: 130,
     margin: 10,
-    border: `2px solid ${theme.palette.secondary.main}`,
+    border: `2px solid ${theme.palette.success.main}`,
   },
   media: {
     height: 140,

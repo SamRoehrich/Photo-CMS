@@ -34,7 +34,7 @@ const EditTheme = () => {
   function handleSubmit() {
     fetch(
       process.env.NODE_ENV == "production"
-        ? PRODUCTION_API_URL + "admin/edit-theme"
+        ? process.env.PRODUCTION_API_URL + "admin/edit-theme"
         : "http://localhost:5000/admin/edit-theme",
       {
         headers: {
@@ -49,7 +49,7 @@ const EditTheme = () => {
   useEffect(() => {
     fetch(
       process.env.NODE_ENV == "production"
-        ? PRODUCTION_API_URL + "theme"
+        ? process.env.PRODUCTION_API_URL + "theme"
         : "http://localhost:5000/theme",
       {
         method: "GET",

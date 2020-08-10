@@ -41,7 +41,7 @@ const ManagePhotos = () => {
   const fetchPictures = async () => {
     const result = await fetch(
       process.env.NODE_ENV == "production"
-        ? PRODUCTION_API_URL + "admin/update"
+        ? process.env.PRODUCTION_API_URL + "admin/update"
         : "http://localhost:5000/admin/update"
     )
       .then((pics) => pics.json())

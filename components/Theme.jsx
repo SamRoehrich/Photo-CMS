@@ -90,7 +90,7 @@ const Theme = ({ children }) => {
   useEffect(async () => {
     const apiTheme = await fetch(
       process.env.NODE_ENV == "production"
-        ? PRODUCTION_API_URL + "theme"
+        ? process.env.PRODUCTION_API_URL + "theme"
         : "http://localhost:5000/theme"
     ).then((res) => res.json());
     const builtTheme = await buildTheme(apiTheme);

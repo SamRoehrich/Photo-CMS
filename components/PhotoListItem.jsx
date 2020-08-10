@@ -56,7 +56,7 @@ const PhotoListItem = ({ photo }) => {
     );
     await fetch(
       process.env.NODE_ENV == "production"
-        ? PRODUCTION_API_URL + "admin/deletePhoto"
+        ? process.env.PRODUCTION_API_URL + "admin/deletePhoto"
         : "http://localhost:5000/admin/deletePhoto",
       {
         headers: {

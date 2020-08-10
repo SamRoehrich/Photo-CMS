@@ -86,7 +86,7 @@ const AdminPhotoUpload = () => {
 
     await fetch(
       process.env.NODE_ENV == "production"
-        ? PRODUCTION_API_URL + "admin/upload"
+        ? process.env.PRODUCTION_API_URL + "admin/upload"
         : "http://localhost:5000/admin/upload",
       {
         method: "POST",

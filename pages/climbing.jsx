@@ -12,7 +12,7 @@ export default ClimbingPage;
 export async function getStaticProps() {
   const res = await fetch(
     process.env.NODE_ENV == "production"
-      ? PRODUCTION_API_URL + "photos/climbing"
+      ? process.env.PRODUCTION_API_URL + "photos/climbing"
       : "http://localhost:5000/photos/climbing"
   );
   const pics = await res.json();
