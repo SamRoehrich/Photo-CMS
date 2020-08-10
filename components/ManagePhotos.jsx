@@ -40,9 +40,7 @@ const ManagePhotos = () => {
 
   const fetchPictures = async () => {
     const result = await fetch(
-      process.env.NODE_ENV == "production"
-        ? process.env.PRODUCTION_API_URL + "admin/update"
-        : "http://localhost:5000/admin/update"
+      "https://kyle-garrett-photo-server.herokuapp.com/admin/update"
     )
       .then((pics) => pics.json())
       .then((sorted) => sorted.sort((a, b) => a.tagIndex - b.tagIndex))

@@ -55,9 +55,7 @@ const PhotoListItem = ({ photo }) => {
       "This will delete the photo from the website, are you sure you want to do this?"
     );
     await fetch(
-      process.env.NODE_ENV == "production"
-        ? process.env.PRODUCTION_API_URL + "admin/deletePhoto"
-        : "http://localhost:5000/admin/deletePhoto",
+      "https://kyle-garrett-photo-server.herokuapp.com/admin/delete",
       {
         headers: {
           "Content-Type": "application/json",

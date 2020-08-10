@@ -7,9 +7,7 @@ export default PortraitsPage;
 
 export async function getStaticProps() {
   const res = await fetch(
-    process.env.NODE_ENV == "production"
-      ? process.env.PRODUCTION_API_URL + "photos/portraits"
-      : "http://localhost:5000/photos/portraits"
+    "https://kyle-garrett-photo-server.herokuapp.com/photos/portraits"
   );
   const pics = await res.json();
 
