@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   active: {
-    color: theme.paletta.text.secondary,
+    color: theme.palette.text.secondary,
     backgroundColor: theme.palette.secondary.main,
     transition: ".75s",
     borderRadius: 0,
