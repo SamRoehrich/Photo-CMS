@@ -31,6 +31,9 @@ const SideBar = () => {
         method: "POST",
       }
     );
+    alert(
+      "Deploy has started. Wait about 2 minutes for changes to be displayed on the site."
+    );
   }
 
   return router.pathname.includes("admin") ? (
