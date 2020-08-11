@@ -9,11 +9,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserProvider value={(user, loading)}>
       <GalleryState>
-        <Theme>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </Theme>
+        {/* <Theme> */}
+        {/* <Layout> */}
+        <Component {...pageProps} />
+        {/* </Layout> */}
+        {/* </Theme> */}
       </GalleryState>
     </UserProvider>
   );
