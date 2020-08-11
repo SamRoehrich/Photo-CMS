@@ -2,6 +2,7 @@ import Gallery from "../components/Gallery/Gallery";
 import { useEffect } from "react";
 import Theme from "../components/Theme";
 import Layout from "../components/Layout";
+import { buildTheme } from "../utils/buildTheme";
 
 const NotClimbingPage = ({ pics, theme }) => {
   useEffect(() => {

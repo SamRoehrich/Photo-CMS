@@ -5,6 +5,7 @@ import { useGalleryState } from "../components/Gallery/GalleryContext";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Theme from "../components/Theme";
+import { buildTheme } from "../utils/buildTheme";
 
 const useStyles = makeStyles({
   root: {

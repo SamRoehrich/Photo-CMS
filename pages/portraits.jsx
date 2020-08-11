@@ -1,6 +1,7 @@
 import Gallery from "../components/Gallery/Gallery";
 import Theme from "../components/Theme";
 import Layout from "../components/Layout";
+import { buildTheme } from "../utils/buildTheme";
 
 const PortraitsPage = ({ pics, theme }) => {
   return (
