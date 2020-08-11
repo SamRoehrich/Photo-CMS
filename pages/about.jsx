@@ -3,6 +3,8 @@ import AboutMe from "../components/AboutMe";
 import { makeStyles } from "@material-ui/styles";
 import { useGalleryState } from "../components/Gallery/GalleryContext";
 import { useEffect, useState } from "react";
+import Layout from "../components/Layout";
+import Theme from "../components/Theme";
 
 const useStyles = makeStyles({
   root: {
@@ -12,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AboutPage = ({ text }) => {
+const AboutPage = ({ text, theme }) => {
   const classes = useStyles();
   const { dispatch } = useGalleryState();
   const [id, setId] = useState(0);
@@ -21,15 +23,17 @@ const AboutPage = ({ text }) => {
     dispatch({ type: "about-page" });
   }, [id]);
 
-  console.log(text);
-
   return (
-    <div className={classes.root}>
-      <AboutMe text={text[0]} />
-      <Button>
-        <a href="mailto:kyle@kgphoto.com">Contact me</a>
-      </Button>
-    </div>
+    <Theme theme={theme}>
+      <Layout>
+        <div className={classes.root}>
+          <AboutMe text={text[0]} />
+          <Button>
+            <a href="mailto:kyle@kgphoto.com">Contact me</a>
+          </Button>
+        </div>
+      </Layout>
+    </Theme>
   );
 };
 export default AboutPage;
@@ -39,10 +43,16 @@ export async function getStaticProps() {
     "https://kyle-garrett-photo-server.herokuapp.com/about"
   );
   const text = await textFromApi.json();
+  const apiTheme = await fetch(
+    "https://kyle-garrett-photo-server.herokuapp.com/theme"
+  );
+  const jsonTheme = await apiTheme.json();
+  const theme = buildTheme(jsonTheme);
 
   return {
     props: {
       text,
+      theme,
     },
   };
 }
