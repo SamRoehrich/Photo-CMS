@@ -9,13 +9,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 0,
     // marginBottom: 15,
     "&:hover": {
-      color: "black",
+      color: theme.palette.text.primary,
       backgroundColor: theme.palette.secondary.main,
       transition: ".25s",
     },
   },
   active: {
-    color: "black",
+    color: theme.paletta.text.secondary,
     backgroundColor: theme.palette.secondary.main,
     transition: ".75s",
     borderRadius: 0,

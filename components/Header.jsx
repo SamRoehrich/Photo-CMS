@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
   iconStyles: {
     marginRight: 20,
     color: `${theme.palette.text.primary}`,
+    "&:hover": {
+      cursor: "pointer",
+      color: theme.palette.warning.main,
+    },
   },
 }));
 
