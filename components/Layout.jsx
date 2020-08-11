@@ -49,7 +49,8 @@ const Layout = ({ children }) => {
           </Grid>
         )}
         <Grid item xs={false} sm={2}>
-          {router.pathname.includes("admin") ? (
+          {router.pathname.includes("admin") ||
+          router.pathname.includes("about") ? (
             <Hidden xlDown>
               <Thumbnails />
             </Hidden>

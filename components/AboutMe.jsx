@@ -13,21 +13,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AboutMe = () => {
+const AboutMe = ({ text }) => {
   const classes = useStyles();
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    fetch("https:http://kyle-garrett-photo-server.herokuapp.com/about")
-      .then((res) => res.json())
-      .then((displayText) => setText(displayText));
-  });
   return (
-    <Paper className={classes.root}>
-      <Typography variant="body1" className={classes.text}>
-        {text}
-      </Typography>
-    </Paper>
+    text !== undefined && (
+      <Paper className={classes.root}>
+        <Typography variant="body1" className={classes.text}>
+          {text.content}
+        </Typography>
+      </Paper>
+    )
   );
 };
 export default AboutMe;
