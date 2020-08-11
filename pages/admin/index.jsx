@@ -1,6 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button, makeStyles } from "@material-ui/core";
 import EditAboutText from "../../components/EditAboutText";
+import Link from "next/link";
+import { useFetchUser } from "../../utils/user";
 
 const useStyles = makeStyles({
   root: {
@@ -12,14 +14,16 @@ const useStyles = makeStyles({
 });
 
 const AdminPage = () => {
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { user, loading } = useFetchUser();
   const classes = useStyles();
 
-  return isAuthenticated ? (
+  return user && !loading ? (
     <EditAboutText />
   ) : (
     <div className={classes.root}>
-      <Button onClick={() => loginWithRedirect()}>Login</Button>
+      <Link href="/api/login">
+        <a>Login</a>
+      </Link>
     </div>
   );
 };

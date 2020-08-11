@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import Thumbnails from "./Gallery/Thumbnails";
+import { useFetchUser } from "../utils/user";
 
 const useStyles = makeStyles({
   sideBar: {

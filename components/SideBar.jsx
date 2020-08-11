@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/styles";
 import { useRouter } from "next/router";
 import { Button } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useFetchUser } from "../utils/user";
+import Link from "next/link";
 
 const useStyles = makeStyles({
   root: {
@@ -19,7 +21,7 @@ const useStyles = makeStyles({
 const SideBar = () => {
   const classes = useStyles();
   const router = useRouter();
-  const { isAuthenticated } = useAuth0();
+  const { user } = useFetchUser();
 
   function handleDeployClick() {
     confirm(
@@ -37,13 +39,16 @@ const SideBar = () => {
   }
 
   return router.pathname.includes("admin") ? (
-    isAuthenticated && (
+    user && (
       <div className={classes.root}>
         <SideBarLink text="Home" href="admin" />
         <SideBarLink text="Upload an Image" href="admin/upload-photo" />
         <SideBarLink text="Manage Photos" href="admin/manage-photos" />
         <SideBarLink text="Edit Theme" href="admin/edit-theme" />
         <Button onClick={() => handleDeployClick()}>Deploy Changes</Button>
+        <Link href="/api/logout">
+          <a>Logout</a>
+        </Link>
       </div>
     )
   ) : (

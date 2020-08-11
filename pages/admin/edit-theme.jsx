@@ -8,6 +8,8 @@ import {
 import { useAuth0 } from "@auth0/auth0-react";
 import EditTheme from "../../components/EditTheme";
 import { Button, makeStyles } from "@material-ui/core";
+import { useFetchUser } from "../../utils/user";
+import Link from "next/link";
 
 const EditThemeContext = createContext();
 const EditThemeProvider = EditThemeContext.Provider;
@@ -56,16 +58,16 @@ const useStyles = makeStyles({
 });
 
 const EditThemePage = () => {
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
-  const classes = useStyles();
-  return isAuthenticated ? (
+  const { user, loading } = useFetchUser();
+  // const classes = useStyles();
+  return user && !loading ? (
     <EditThemeState>
       <EditTheme />
     </EditThemeState>
   ) : (
-    <div className={classes.root}>
-      <Button onClick={() => loginWithRedirect()}>Login</Button>
-    </div>
+    <Link href="/api/login">
+      <a>Login</a>
+    </Link>
   );
 };
 export default EditThemePage;
