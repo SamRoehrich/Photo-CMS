@@ -8,6 +8,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import PhotoListItem from "./PhotoListItem";
+import RefreshIcon from "@material-ui/icons/Refresh";
+import { IconButton } from "@material-ui/core";
 
 const columns = [
   { id: "expand", label: "", minWidth: 50 },
@@ -72,6 +74,9 @@ const ManagePhotos = () => {
                   {column.label}
                 </TableCell>
               ))}
+              <IconButton onClick={() => fetchPictures()}>
+                <RefreshIcon />
+              </IconButton>
             </TableRow>
           </TableHead>
           <TableBody>
