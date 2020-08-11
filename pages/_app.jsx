@@ -5,6 +5,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { GalleryState } from "../components/Gallery/GalleryContext";
 import { createMuiTheme } from "@material-ui/core";
 
+import { buildTheme } from "../components/Theme";
+
 function MyApp({ Component, pageProps }) {
   return (
     <Auth0Provider
@@ -13,7 +15,7 @@ function MyApp({ Component, pageProps }) {
       redirectUri={"https://kgp-hoto.vercel.app/admin"}
     >
       <GalleryState>
-        <Theme theme={theme}>
+        <Theme>
           <Layout>
             <Component {...pageProps} />
           </Layout>
@@ -24,18 +26,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
-export async function getStaticProps() {
-  const apiTheme = await fetch(
-    "https://kyle-garrett-photo-server.herokuapp.com/theme"
-  );
-  await apiTheme.json();
-  const builtTheme = await builtTheme(apiTheme);
-  const theme = createMuiTheme(builtTheme);
-
-  return {
-    props: {
-      theme,
-    },
-  };
-}

@@ -60,6 +60,9 @@ function reducer(state, action) {
       let currentPhotoIndex = 0;
       return { ...state, currentPhotoIndex };
     }
+    case "about-page": {
+      return {};
+    }
     default:
       return state;
   }

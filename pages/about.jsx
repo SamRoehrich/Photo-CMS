@@ -1,6 +1,8 @@
 import { Button } from "@material-ui/core";
 import AboutMe from "../components/AboutMe";
 import { makeStyles } from "@material-ui/styles";
+import { useGalleryState } from "../components/Gallery/GalleryContext";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   root: {
@@ -12,6 +14,12 @@ const useStyles = makeStyles({
 
 const AboutPage = () => {
   const classes = useStyles();
+  const { dispatch } = useGalleryState();
+
+  useEffect(() => {
+    dispatch({ type: "about-page" });
+  });
+
   return (
     <div className={classes.root}>
       <AboutMe />
