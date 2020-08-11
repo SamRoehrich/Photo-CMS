@@ -3,9 +3,6 @@ import Theme from "../components/Theme";
 import Layout from "../components/Layout";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { GalleryState } from "../components/Gallery/GalleryContext";
-import { createMuiTheme } from "@material-ui/core";
-
-import { buildTheme } from "../components/Theme";
 
 function MyApp({ Component, pageProps }) {
   return (
