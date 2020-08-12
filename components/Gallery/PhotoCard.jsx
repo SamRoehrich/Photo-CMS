@@ -3,6 +3,7 @@ import Card from "@material-ui/core/Card";
 import { CardMedia, CardActionArea, IconButton } from "@material-ui/core";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { useSpring, animated } from "react-spring";
 import { useGalleryState } from "./GalleryContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +40,8 @@ export default function SimpleCard({ picture }) {
 
   const { state, dispatch } = useGalleryState();
 
+  const animationProps = useSpring({ opacity: 1, from: { opacity: 0 } });
+
   console.log(picture);
 
   function handlePrevClick(e) {
@@ -51,20 +54,28 @@ export default function SimpleCard({ picture }) {
     dispatch({ type: "move-forward" });
   }
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={picture.link !== undefined ? picture.link : ""}
-        >
-          <IconButton onClick={handlePrevClick} className={classes.backButton}>
-            <NavigateBeforeIcon fontSize="large" />
-          </IconButton>
-          <IconButton onClick={handleNextClick} className={classes.nextButton}>
-            <NavigateNextIcon fontSize="large" />
-          </IconButton>
-        </CardMedia>
-      </CardActionArea>
-    </Card>
+    <animated.div style={animationProps}>
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={picture.link !== undefined ? picture.link : ""}
+          >
+            <IconButton
+              onClick={handlePrevClick}
+              className={classes.backButton}
+            >
+              <NavigateBeforeIcon fontSize="large" />
+            </IconButton>
+            <IconButton
+              onClick={handleNextClick}
+              className={classes.nextButton}
+            >
+              <NavigateNextIcon fontSize="large" />
+            </IconButton>
+          </CardMedia>
+        </CardActionArea>
+      </Card>
+    </animated.div>
   );
 }

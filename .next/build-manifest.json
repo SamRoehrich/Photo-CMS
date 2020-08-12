@@ -28,7 +28,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/next/dist/pages/_error": [
+    "/spring": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

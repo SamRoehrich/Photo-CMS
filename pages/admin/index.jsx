@@ -3,6 +3,9 @@ import { Button, makeStyles } from "@material-ui/core";
 import EditAboutText from "../../components/EditAboutText";
 import Link from "next/link";
 import { useFetchUser } from "../../utils/user";
+import Layout from "../../components/Layout";
+import { buildTheme } from "../../utils/buildTheme";
+import Theme from "../../components/Theme";
 
 const useStyles = makeStyles({
   root: {
@@ -13,12 +16,16 @@ const useStyles = makeStyles({
   },
 });
 
-const AdminPage = () => {
+const AdminPage = ({ theme }) => {
   const { user, loading } = useFetchUser();
   const classes = useStyles();
 
   return user && !loading ? (
-    <EditAboutText />
+    <Theme theme={theme}>
+      <Layout>
+        <EditAboutText />
+      </Layout>
+    </Theme>
   ) : (
     <div className={classes.root}>
       <Link href="/api/login">
@@ -28,3 +35,17 @@ const AdminPage = () => {
   );
 };
 export default AdminPage;
+
+export async function getServerSideProps() {
+  const apiTheme = await fetch(
+    "https://kyle-garrett-photo-server.herokuapp.com/theme"
+  );
+  const jsonTheme = await apiTheme.json();
+  const theme = buildTheme(jsonTheme);
+
+  return {
+    props: {
+      theme,
+    },
+  };
+}

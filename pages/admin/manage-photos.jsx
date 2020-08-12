@@ -6,6 +6,9 @@ import AdminPhotoUpload from "../../components/PhotoUpload";
 import { Button, makeStyles } from "@material-ui/core";
 import { useFetchUser } from "../../utils/user";
 import Link from "next/link";
+import Theme from "../../components/Theme";
+import Layout from "../../components/Layout";
+import { buildTheme } from "../../utils/buildTheme";
 
 const useStyles = makeStyles({
   root: {
@@ -16,11 +19,15 @@ const useStyles = makeStyles({
   },
 });
 
-const ManagePhotosPage = () => {
+const ManagePhotosPage = ({ theme }) => {
   const { user, loading } = useFetchUser();
   // const classes = useStyles();
   return user && !loading ? (
-    <ManagePhotos />
+    <Theme theme={theme}>
+      <Layout>
+        <ManagePhotos />
+      </Layout>
+    </Theme>
   ) : (
     <Link href="/api/login">
       <a>Login</a>
@@ -28,3 +35,17 @@ const ManagePhotosPage = () => {
   );
 };
 export default ManagePhotosPage;
+
+export async function getServerSideProps() {
+  const apiTheme = await fetch(
+    "https://kyle-garrett-photo-server.herokuapp.com/theme"
+  );
+  const jsonTheme = await apiTheme.json();
+  const theme = buildTheme(jsonTheme);
+
+  return {
+    props: {
+      theme,
+    },
+  };
+}

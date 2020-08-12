@@ -10,6 +10,9 @@ import EditTheme from "../../components/EditTheme";
 import { Button, makeStyles } from "@material-ui/core";
 import { useFetchUser } from "../../utils/user";
 import Link from "next/link";
+import Theme from "../../components/Theme";
+import Layout from "../../components/Layout";
+import { buildTheme } from "../../utils/buildTheme";
 
 const EditThemeContext = createContext();
 const EditThemeProvider = EditThemeContext.Provider;
@@ -57,13 +60,17 @@ const useStyles = makeStyles({
   },
 });
 
-const EditThemePage = () => {
+const EditThemePage = ({ theme }) => {
   const { user, loading } = useFetchUser();
   // const classes = useStyles();
   return user && !loading ? (
-    <EditThemeState>
-      <EditTheme />
-    </EditThemeState>
+    <Theme theme={theme}>
+      <Layout>
+        <EditThemeState>
+          <EditTheme />
+        </EditThemeState>
+      </Layout>
+    </Theme>
   ) : (
     <Link href="/api/login">
       <a>Login</a>
@@ -71,3 +78,17 @@ const EditThemePage = () => {
   );
 };
 export default EditThemePage;
+
+export async function getServerSideProps() {
+  const apiTheme = await fetch(
+    "https://kyle-garrett-photo-server.herokuapp.com/theme"
+  );
+  const jsonTheme = await apiTheme.json();
+  const theme = buildTheme(jsonTheme);
+
+  return {
+    props: {
+      theme,
+    },
+  };
+}
