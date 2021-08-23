@@ -1,1 +1,10 @@
-{"/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/index":"static/development/pages/index.js","/spring":"static/development/pages/spring.js","/":"static/development/pages/index.js"}
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/climbing": "pages/climbing.js",
+  "/notclimbing": "pages/notclimbing.js",
+  "/portraits": "pages/portraits.js",
+  "/contact": "pages/contact.js",
+  "/": "pages/index.js"
+}

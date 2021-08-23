@@ -1,4 +1,4 @@
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 import CssBaseLine from "@material-ui/core/CssBaseline";
 import { useEffect, useState } from "react";
 
@@ -11,14 +11,14 @@ const Theme = ({ theme, children }) => {
   //     "https://kyle-garrett-photo-server.herokuapp.com/theme"
   //   ).then((res) => res.json());
   //   const builtTheme = await buildTheme(apiTheme);
-  //   const finalTheme = createMuiTheme(builtTheme);
+  //   const finalTheme = createTHeme(builtTheme);
   //   setTheme(finalTheme);
   //   setLoading(false);
   // }, []);
 
   // if (loading) return <div>loading</div>;
 
-  const finalTheme = createMuiTheme(theme);
+  const finalTheme = createTheme(theme);
 
   return (
     <ThemeProvider theme={finalTheme}>
