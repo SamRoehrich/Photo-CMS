@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@material-ui/core";
-import { createTheme } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseLine from "@material-ui/core/CssBaseline";
 import { useEffect, useState } from "react";
 
@@ -19,7 +19,7 @@ const Theme = ({ theme, children }) => {
 
   // if (loading) return <div>loading</div>;
 
-  const finalTheme = createTheme(theme);
+  const finalTheme = createMuiTheme(theme);
 
   return (
     <ThemeProvider theme={finalTheme}>
