@@ -2,9 +2,9 @@ import { initAuth0 } from "@auth0/nextjs-auth0";
 
 export default initAuth0({
   domain: "dev-vqkf1a2g.auth0.com",
-  clientId: "tUIXxPS5ZX1vwDzkzaWd5M58nc17HmO1",
+  clientId: "lqZ59xedEisHPnG1VtkY8yvlxo0CpyQ0",
   clientSecret:
-    "S_ZT_L5iWqCTkirqcE0vrs2NybsW2O5wDcbsVp9I8rdAm52rh2RRJVJeZ3XZdYT3",
+    "hO06UEOi-p1Iq-2BME72S6Qnc4PeDB-pV28wvJj8CsKTLvzNN7F5Wem04oviCiQa",
   scope: "openid profile",
   redirectUri: "https://kgp-hoto.vercel.app/api/callback",
   postLogoutRedirectUri: "https://kgp-hoto.vercel.app/",
